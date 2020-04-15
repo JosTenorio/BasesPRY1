@@ -63,5 +63,19 @@
     <Build Include="CLIENTE.sql" />
     <Build Include="TELEFONOS_CLIENTE.sql" />
     <Build Include="ORDEN.sql" />
+    <Build Include="DETALLE.sql" />
+    <Build Include="FAB_PARTES.sql" />
+    <Build Include="MARCA.sql" />
+    <Build Include="FAB_AUTOS.sql" />
+    <Build Include="PARTE.sql" />
+    <Build Include="AUTOMOVIL.sql" />
+    <Build Include="PROVEEDOR.sql" />
+    <Build Include="TELEFONOS_PROVEEDOR.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BasesPRY1.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="BasesPRY1.refactorlog" />
   </ItemGroup>
 </Project>
