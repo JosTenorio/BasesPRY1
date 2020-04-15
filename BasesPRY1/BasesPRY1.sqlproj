@@ -13,7 +13,7 @@
     </RootPath>
     <RootNamespace>BasesPRY1</RootNamespace>
     <AssemblyName>BasesPRY1</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -58,9 +60,8 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="CLIENTES.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="BasesPRY1.refactorlog" />
+    <Build Include="CLIENTE.sql" />
+    <Build Include="TELEFONOS_CLIENTE.sql" />
+    <Build Include="ORDEN.sql" />
   </ItemGroup>
 </Project>
