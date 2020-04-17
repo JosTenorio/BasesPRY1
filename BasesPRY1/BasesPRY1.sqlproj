@@ -67,12 +67,11 @@
     <Build Include="FAB_AUTOS.sql" />
     <Build Include="PARTE.sql" />
     <Build Include="AUTOMOVIL.sql" />
-    <Build Include="PROVEEDOR.sql" />
+    <Build Include="PROVISION.sql" />
     <Build Include="TELEFONOS_PROVEEDOR.sql" />
-    <Build Include="CLIENTE_PERSONA.sql" />
-    <Build Include="CLIENTE_ORGANIZACION.sql" />
-    <Build Include="TELEFONOS_CL_PERSONA.sql" />
-    <Build Include="TELEFONOS_CL_ORGANIZACION.sql" />
+    <Build Include="CLIENTE.sql" />
+    <Build Include="TELEFONOS_CLIENTE.sql" />
+    <Build Include="PROVEEDURIA.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="BasesPRY1.refactorlog" />
