@@ -71,7 +71,7 @@
     <Build Include="TELEFONOS_PROVEEDOR.sql" />
     <Build Include="CLIENTE.sql" />
     <Build Include="TELEFONOS_CLIENTE.sql" />
-    <Build Include="PROVEEDURIA.sql" />
+    <Build Include="PROVISION.sql" />
     <Build Include="ORGANIZACION.sql" />
   </ItemGroup>
   <ItemGroup>
