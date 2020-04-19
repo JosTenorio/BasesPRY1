@@ -91,4 +91,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="CEDULA_CLIENTE" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="dd9ede90-750b-48e0-bfe7-47e0d2abba31" ChangeDateTime="04/19/2020 23:33:07">
+    <Property Name="ElementName" Value="[dbo].[PROVEEDURIA].[PRECIO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PROVEEDURIA]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PRECIO_COMPRA" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="30075071-ccbf-4862-9bbe-533f7a8c9e34" ChangeDateTime="04/19/2020 23:33:12">
+    <Property Name="ElementName" Value="[dbo].[PROVEEDURIA].[GANANCIA_PORC]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PROVEEDURIA]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PRECIO_VENTA" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="81bf22af-7323-4b4d-b1d6-4289bf9e67d5" ChangeDateTime="04/19/2020 23:34:32">
+    <Property Name="ElementName" Value="[dbo].[ORDEN].[MONTO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ORDEN]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MONTO_BASE" />
+  </Operation>
 </Operations>

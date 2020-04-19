@@ -67,7 +67,7 @@
     <Build Include="FAB_AUTOS.sql" />
     <Build Include="PARTE.sql" />
     <Build Include="AUTOMOVIL.sql" />
-    <Build Include="PROVISION.sql" />
+    <Build Include="PROVEEDOR.sql" />
     <Build Include="TELEFONOS_PROVEEDOR.sql" />
     <Build Include="CLIENTE.sql" />
     <Build Include="TELEFONOS_CLIENTE.sql" />
