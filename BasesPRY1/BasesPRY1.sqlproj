@@ -70,9 +70,10 @@
     <Build Include="PROVEEDOR.sql" />
     <Build Include="TELEFONOS_PROVEEDOR.sql" />
     <Build Include="PERSONA.sql" />
-    <Build Include="TELEFONOS_CLIENTE.sql" />
+    <Build Include="TELEFONOS_PERSONA.sql" />
     <Build Include="PROVISION.sql" />
     <Build Include="ORGANIZACION.sql" />
+    <Build Include="TELEFONOS_ORGANIZACION.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="BasesPRY1.refactorlog" />
