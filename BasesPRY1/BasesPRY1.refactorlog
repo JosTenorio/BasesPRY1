@@ -112,4 +112,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="MONTO_BASE" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="3a8fe514-cfff-4cf1-93be-d3f9a715d5a6" ChangeDateTime="04/23/2020 20:55:10">
+    <Property Name="ElementName" Value="[dbo].[ORDEN].[CEDULA_CLIENTE]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ORDEN]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CEDULA_PERSONA" />
+  </Operation>
 </Operations>
