@@ -78,4 +78,7 @@
   <ItemGroup>
     <RefactorLog Include="BasesPRY1.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="BasesPRY1.publish.xml" />
+  </ItemGroup>
 </Project>
