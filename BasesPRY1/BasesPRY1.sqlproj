@@ -74,6 +74,8 @@
     <Build Include="PROVISION.sql" />
     <Build Include="ORGANIZACION.sql" />
     <Build Include="TELEFONOS_ORGANIZACION.sql" />
+    <Build Include="CLIENTE.sql" />
+    <Build Include="ESTADO.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="BasesPRY1.refactorlog" />
