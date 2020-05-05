@@ -196,4 +196,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="PRECIO_PROVEEDOR" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="9f8a2bb6-95a1-41d8-9c6e-5fce320bc213" ChangeDateTime="05/05/2020 21:51:34">
+    <Property Name="ElementName" Value="[dbo].[TELEFONOS_PROVEEDOR].[NOMBRE_PROVEEDOR]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TELEFONOS_PROVEEDOR]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID_PROVEEDOR" />
+  </Operation>
 </Operations>
