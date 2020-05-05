@@ -161,4 +161,39 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="TIPO" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="cf17c9cd-f56e-4a23-b17d-395a26f0dfac" ChangeDateTime="05/05/2020 21:07:14">
+    <Property Name="ElementName" Value="[dbo].[PARTE].[NOMBRE_FAB]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PARTE]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FABRICANTE" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="02592e03-6613-4af1-a2ea-486df1f61a86" ChangeDateTime="05/05/2020 21:10:15">
+    <Property Name="ElementName" Value="[dbo].[AUTOMOVIL].[NOMBRE_FAB]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AUTOMOVIL]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FABRICANTE" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="aad6aac8-88dd-4341-9f06-cfb5cce957f0" ChangeDateTime="05/05/2020 21:11:56">
+    <Property Name="ElementName" Value="[dbo].[DETALLE].[NOMBRE_PROVEEDOR]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DETALLE]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID_PROVEEDOR" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e8ba97c8-adc9-47e5-970e-b0e4835f682e" ChangeDateTime="05/05/2020 21:12:58">
+    <Property Name="ElementName" Value="[dbo].[PROVISION].[NOMBRE_PROVEEDOR]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PROVISION]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID_PROVEEDOR" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9f5e9332-1409-4202-9c72-0ad3ee3b0f5d" ChangeDateTime="05/05/2020 21:13:49">
+    <Property Name="ElementName" Value="[dbo].[PROVISION].[PRECIO_COMPRA]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PROVISION]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PRECIO_PROVEEDOR" />
+  </Operation>
 </Operations>
