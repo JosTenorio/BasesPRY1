@@ -1,7 +1,6 @@
 
 package Server.Model;
 
-import ComunicationPackages.IPackage;
 import Server.Controller.ConnectionController;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -9,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ComunicationPackages.Package;
 
 public class CommunicationThread extends Thread{
     
@@ -27,8 +27,8 @@ public class CommunicationThread extends Thread{
         while(running){
             try {
                 ObjectInputStream input = new ObjectInputStream(clientSocket.getInputStream());
-                IPackage inputPackage = (IPackage) input.readObject();
-                switch(inputPackage.getType()){
+                Package inputPackage = (Package) input.readObject();
+                switch(inputPackage.getAction()){
                     //evaluate all input packages here
                 }
             } catch (IOException | ClassNotFoundException ex) {
@@ -38,7 +38,7 @@ public class CommunicationThread extends Thread{
         }
     }
     
-    public void sendPackage(IPackage pack) {
+    public void sendPackage(Package pack) {
         try {
             ObjectOutputStream output = new ObjectOutputStream(clientSocket.getOutputStream());
             output.writeObject(pack);
