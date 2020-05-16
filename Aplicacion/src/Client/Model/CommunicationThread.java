@@ -2,7 +2,7 @@
 package Client.Model;
 
 import Client.Controller.MainMenuController;
-import Packages.IPackage;
+import ComunicationPackages.IPackage;
 import Server.Model.Server;
 import java.io.IOException;
 import java.io.ObjectInputStream;

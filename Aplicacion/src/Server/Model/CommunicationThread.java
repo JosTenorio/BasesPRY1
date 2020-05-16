@@ -1,7 +1,7 @@
 
 package Server.Model;
 
-import Packages.IPackage;
+import ComunicationPackages.IPackage;
 import Server.Controller.ConnectionController;
 import java.io.IOException;
 import java.io.ObjectInputStream;
