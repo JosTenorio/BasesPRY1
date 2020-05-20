@@ -6,40 +6,45 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ConnectionManager {
     private static Connection connection = null;
     private static Statement statement = null;
     private static final String CONNECTION_URL = "jdbc:sqlserver://192.168.1.10:1433;databaseName=BasesPRY1;user=sa;password=2019064588";
     
-    private static void setConnection () throws SQLException {
+    public static void connect() throws SQLException {
        connection = DriverManager.getConnection(CONNECTION_URL);
        statement = connection.createStatement ();
     }
     
-    private static void executeQuery (String query) throws SQLException {
+    private static void executeActionQuery(String query) throws SQLException {
         if (connection == null)
-            setConnection();
+            connect();
         statement.execute(query);
     }
     
-    private static ResultSet executeDataQuery (String query) throws SQLException {
+    private static ResultSet executeConsultQuery(String query) throws SQLException {
         if (connection == null)
-            setConnection();
+            connect();
         ResultSet rs = statement.executeQuery(query);
         return rs;
     }
     
-    public static void main(String[] args){
-        ResultSet rs;
-        try {
-             ConnectionManager.executeQuery("DELETE FROM ESTADO WHERE TIPO = 'RECHAZADO'");
-             rs = ConnectionManager.executeDataQuery("SELECT TIPO FROM ESTADO");
-             while (rs.next()){
-                System.out.println(rs.getString("TIPO"));
-             }
-        } catch (SQLException ex) {
-            System.out.print(ex.getMessage());
-        }
-    } 
+    public static void insert(String table, ArrayList<String> columns, ArrayList<String> values){
+        
+    }
+    
+    public static ArrayList<ArrayList<String>> select(ArrayList<String> values, String table, ArrayList<String> conditions){
+        
+    }
+    
+    public static void update(String table, ArrayList<String> values, ArrayList<String> conditions){
+        
+    }
+    
+    public static void delete(String table, ArrayList<String> conditions){
+        
+    }
+    
 }
