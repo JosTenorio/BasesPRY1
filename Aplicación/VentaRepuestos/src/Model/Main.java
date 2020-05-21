@@ -13,6 +13,7 @@ public class Main {
         try {
             ConnectionManager.connect();
             MainMenuController controller = new MainMenuController(new MainMenuDisplay());
+            
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

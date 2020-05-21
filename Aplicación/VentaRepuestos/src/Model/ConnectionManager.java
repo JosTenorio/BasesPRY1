@@ -36,7 +36,8 @@ public class ConnectionManager {
     }
     
     public static ArrayList<ArrayList<String>> select(ArrayList<String> values, String table, ArrayList<String> conditions){
-        
+        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+        return result;
     }
     
     public static void update(String table, ArrayList<String> values, ArrayList<String> conditions){
