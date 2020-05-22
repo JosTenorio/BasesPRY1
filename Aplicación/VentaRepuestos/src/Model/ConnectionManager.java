@@ -11,11 +11,20 @@ import java.util.ArrayList;
 public class ConnectionManager {
     private static Connection connection = null;
     private static Statement statement = null;
-    private static final String CONNECTION_URL = "jdbc:sqlserver://192.168.1.10:1433;databaseName=BasesPRY1;user=sa;password=2019064588";
+    private static String IP = "localhost";
+    private static String USERNAME = "sa";
+    private static String PASSWORD = "12345";
+    
+    public static void logIn(String ip, String username, String password){
+        IP = ip;
+        USERNAME = username;
+        PASSWORD = password;
+    }
     
     public static void connect() throws SQLException {
-       connection = DriverManager.getConnection(CONNECTION_URL);
-       statement = connection.createStatement ();
+        String url = "jdbc:sqlserver://" + IP  + ":1433;databaseName=BasesPRY1;user=" + USERNAME + ";password=" + PASSWORD;
+        connection = DriverManager.getConnection(url);
+        statement = connection.createStatement ();
     }
     
     private static void executeActionQuery(String query) throws SQLException {
