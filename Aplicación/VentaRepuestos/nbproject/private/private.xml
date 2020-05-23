@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Jos/Desktop/BasesPRY1/BasesPRY1/Aplicación/VentaRepuestos/src/Model/ClientQuery.java</file>
+            <file>file:/C:/Users/Jos/Desktop/BasesPRY1/BasesPRY1/Aplicación/VentaRepuestos/src/Controller/MainMenuController.java</file>
+            <file>file:/C:/Users/Jos/Desktop/BasesPRY1/BasesPRY1/Aplicación/VentaRepuestos/src/Model/ErrorManager.java</file>
+            <file>file:/C:/Users/Jos/Desktop/BasesPRY1/BasesPRY1/Aplicación/VentaRepuestos/src/Model/PartQuery.java</file>
+            <file>file:/C:/Users/Jos/Desktop/BasesPRY1/BasesPRY1/Aplicación/VentaRepuestos/src/Model/OrderQuery.java</file>
+            <file>file:/C:/Users/Jos/Desktop/BasesPRY1/BasesPRY1/Aplicación/VentaRepuestos/src/Model/ConnectionManager.java</file>
+            <file>file:/C:/Users/Jos/Desktop/BasesPRY1/BasesPRY1/Aplicación/VentaRepuestos/src/Model/Main.java</file>
+        </group>
     </open-files>
 </project-private>
