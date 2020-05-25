@@ -12,9 +12,9 @@ import java.util.Iterator;
 public class ConnectionManager {
     private static Connection connection = null;
     private static Statement statement = null;
-    private static String IP = "localhost";
-    private static String USERNAME = "sa";
-    private static String PASSWORD = "2019064588";
+    private static String IP;
+    private static String USERNAME;
+    private static String PASSWORD;
     
     public static void logIn(String ip, String username, String password){
         IP = ip;
@@ -31,12 +31,14 @@ public class ConnectionManager {
     private static void executeActionQuery(String query) throws SQLException {
         if (connection == null)
             connect();
+        System.out.println(query);
         statement.execute(query);
     }
     
     private static ResultSet executeConsultQuery(String query) throws SQLException {
         if (connection == null)
             connect();
+        System.out.println(query);
         ResultSet rs = statement.executeQuery(query);
         return rs;
     }
@@ -48,8 +50,8 @@ public class ConnectionManager {
         {
             query += i.next() + ",";
         }
-        query = query.substring(0,query.length()-1) + ") VALUES (";
-        i = values.iterator ();
+        query = query.substring(0,query.length()-1) + ") VALUES(";
+        i = values.iterator();
         while (i.hasNext())
         {
             query += i.next() + ",";
@@ -58,11 +60,11 @@ public class ConnectionManager {
         executeActionQuery(query);
     }
     
-    public static ArrayList<ArrayList<Object>> select(ArrayList<String> columns, ArrayList <String> tables) throws SQLException{
-        return select (columns,tables, "");
+    public static ArrayList<ArrayList<String>> select(ArrayList<String> columns, ArrayList <String> tables) throws SQLException{
+        return select(columns,tables, "");
     }
     
-    public static ArrayList<ArrayList<Object>> select(ArrayList<String> columns, ArrayList <String> tables, String conditions) throws SQLException{
+    public static ArrayList<ArrayList<String>> select(ArrayList<String> columns, ArrayList <String> tables, String conditions) throws SQLException{
         String query = "SELECT ";
         Iterator i = columns.iterator();
         while (i.hasNext())
@@ -79,20 +81,23 @@ public class ConnectionManager {
         if (!"".equals(conditions)){
                 query += " WHERE " + conditions;
         }
-        System.out.println(query);
-        ResultSet rs = executeConsultQuery (query);
-        ArrayList<ArrayList<Object>> result = new ArrayList<>();
+        ResultSet rs = executeConsultQuery(query);
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
         while (rs.next()) 
         {
-            ArrayList<Object> row = new ArrayList<>();
+            ArrayList<String> row = new ArrayList<>();
             for (String columnLabel : columns) 
             {
-                row.add(rs.getObject (columnLabel));
+                String rowValue = rs.getObject(columnLabel).toString();
+                row.add(rowValue);
+                System.out.print(rowValue);
             }
-            result.add (row);
+            System.out.println("");
+            result.add(row);
         }
         return result;
     }
+    
     public static void update(String table, ArrayList<String> columns, ArrayList<String> values) throws SQLException{
         update (table,columns,values,"");
     }
