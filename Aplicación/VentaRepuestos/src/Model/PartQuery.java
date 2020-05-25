@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class PartQuery {
     
-    public static void insetPart(String name, String brand, String fabricator){
+    public static void insertPart(String name, String brand, String fabricator){
         ArrayList<String> columns = new ArrayList<String>() { 
             { 
                 add("NOMBRE"); 
@@ -20,7 +20,7 @@ public class PartQuery {
             {
                 add("'" + name + "'");
                 add("(SELECT ID FROM MARCA WHERE NOMBRE = '" + brand + "')");
-                add("(SELECT ID FROM FABRICANTE WHERE NOMBRE = '" + fabricator + "')");
+                add("(SELECT ID FROM FAB_PARTES WHERE NOMBRE = '" + fabricator + "')");
             } 
         };
         try {

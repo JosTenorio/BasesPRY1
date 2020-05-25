@@ -34,6 +34,9 @@ public class Main {
 //                }
 //            };
 //            ClientQuery.insertClient("ACTIVO", info, phones, true);
+
+            //EJEMPLO INSERTAR PARTE
+//            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
             
         } catch (SQLException ex) {
             System.out.println("FAILED TO CONNECT TO DATABASE");
