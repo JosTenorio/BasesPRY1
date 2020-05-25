@@ -37,6 +37,9 @@ public class Main {
 
             //EJEMPLO INSERTAR PARTE
 //            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
+
+            //EJEMPLO INSERTAR ORDEN
+            OrderQuery.insertOrder("25", "05", "2020", "1234567890", true);
             
         } catch (SQLException ex) {
             System.out.println("FAILED TO CONNECT TO DATABASE");

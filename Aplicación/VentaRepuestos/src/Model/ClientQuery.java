@@ -29,24 +29,25 @@ public class ClientQuery {
     }
     
     private static void insertClientAux(ArrayList<String> information, boolean organization){
-        ArrayList<String> columns = new ArrayList<>();
-        if (organization)
-        {
-            columns.add("CEDULA_JUR");
-            columns.add("NOMBRE"); 
-            columns.add("DIRECCION"); 
-            columns.add("CIUDAD");
-            columns.add("NOMBRE_CONTACTO");
-            columns.add("CARGO_CONTACTO");
-        }
-        else
-        {
-            columns.add("CEDULA");
-            columns.add("NOMBRE"); 
-            columns.add("DIRECCION"); 
-            columns.add("CIUDAD");
-        }
-        columns.add("ID_CLIENTE");
+        ArrayList<String> columns = new ArrayList<>(){
+            {
+                if (organization){
+                    add("CEDULA_JUR");
+                    add("NOMBRE"); 
+                    add("DIRECCION"); 
+                    add("CIUDAD");
+                    add("NOMBRE_CONTACTO");
+                    add("CARGO_CONTACTO");
+                }
+                else{
+                    add("CEDULA");
+                    add("NOMBRE"); 
+                    add("DIRECCION"); 
+                    add("CIUDAD");
+                }
+                add("ID_CLIENTE");
+            }
+        };
         for (int i = 1; i < information.size(); i++)
             information.set(i, "'" + information.get(i) + "'");
         information.add("(SELECT MAX(ID) FROM CLIENTE)");
@@ -69,17 +70,18 @@ public class ClientQuery {
     }
     
     private static void insertPhone(String key, ArrayList<String> telephones, boolean organization){
-        ArrayList<String> columns = new ArrayList<>();
-        if (organization)
-        {
-            columns.add("CEDULA_ORGANIZACION");
-        }
-        else
-        {
-            columns.add("CEDULA_PERSONA");
-        }
-        columns.add("TELEFONO");
-        ArrayList<String> values = new ArrayList<String>() { 
+        ArrayList<String> columns = new ArrayList<>(){
+            {
+                if (organization){
+                    add("CEDULA_ORGANIZACION");
+                }
+                else{
+                    add("CEDULA_PERSONA");
+                }
+                add("TELEFONO");  
+            }
+        };
+        ArrayList<String> values = new ArrayList<>() { 
             { 
                 add(key); 
                 add("");

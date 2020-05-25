@@ -26,7 +26,7 @@ public class PartQuery {
         try {
             ConnectionManager.insert("PARTE", columns, values);
         } catch (SQLException ex) {
-            Logger.getLogger(ClientQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
