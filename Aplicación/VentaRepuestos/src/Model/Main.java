@@ -39,7 +39,10 @@ public class Main {
 //            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
 
             //EJEMPLO INSERTAR ORDEN
-            OrderQuery.insertOrder("25", "05", "2020", "1234567890", true);
+//            OrderQuery.insertOrder("25", "05", "2020", "1234567890", true);
+
+            //EJEMPLO INSERTAR DETALLE
+//            OrderQuery.addDetail("4", "2", "5", "Super Repuestos");
             
         } catch (SQLException ex) {
             System.out.println("FAILED TO CONNECT TO DATABASE");

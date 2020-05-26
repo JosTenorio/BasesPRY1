@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class ConnectionManager {
@@ -43,6 +44,10 @@ public class ConnectionManager {
         return rs;
     }
     
+    public static void insert(String table, String column, String value) throws SQLException{
+        insert(table, new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(value)));
+    }
+    
     public static void insert(String table, ArrayList<String> columns, ArrayList<String> values) throws SQLException{
         String query = "INSERT INTO " + table + "(";
         Iterator i = columns.iterator();
@@ -60,11 +65,30 @@ public class ConnectionManager {
         executeActionQuery(query);
     }
     
-    public static ArrayList<ArrayList<String>> select(ArrayList<String> columns, ArrayList <String> tables) throws SQLException{
-        return select(columns,tables, "");
+    public static void update(String table, String column, String value, String conditions) throws SQLException{
+        update(table, new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(value)), conditions);
     }
     
-    public static ArrayList<ArrayList<String>> select(ArrayList<String> columns, ArrayList <String> tables, String conditions) throws SQLException{
+    public static void update(String table, ArrayList<String> columns, ArrayList<String> values, String conditions) throws SQLException{
+        String query = "UPDATE " + table + " SET ";
+        Iterator i1 = columns.iterator();
+        Iterator i2 = values.iterator();
+        while (i1.hasNext()) 
+        {
+            query += i1.next() + " = " + i2.next() + ",";
+        }
+        query = query.substring(0,query.length()-1);
+        if (!"".equals(conditions)){
+                query += " WHERE " + conditions;
+        }
+        executeActionQuery(query);
+    }
+    
+    public static ResultSet select(String column, String table, String conditions) throws SQLException{
+        return select(new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(table)), conditions);
+    }
+    
+    public static ResultSet select(ArrayList<String> columns, ArrayList <String> tables, String conditions) throws SQLException{
         String query = "SELECT ";
         Iterator i = columns.iterator();
         while (i.hasNext())
@@ -82,39 +106,8 @@ public class ConnectionManager {
                 query += " WHERE " + conditions;
         }
         ResultSet rs = executeConsultQuery(query);
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
-        while (rs.next()) 
-        {
-            ArrayList<String> row = new ArrayList<>();
-            for (String columnLabel : columns) 
-            {
-                String rowValue = rs.getObject(columnLabel).toString();
-                row.add(rowValue);
-                System.out.print(rowValue);
-            }
-            System.out.println("");
-            result.add(row);
-        }
-        return result;
-    }
-    
-    public static void update(String table, ArrayList<String> columns, ArrayList<String> values) throws SQLException{
-        update (table,columns,values,"");
-    }
-    
-    public static void update(String table, ArrayList<String> columns, ArrayList<String> values, String conditions) throws SQLException{
-        String query = "UPDATE " + table + " VALUES ";
-        Iterator it1 = columns.iterator();
-        Iterator it2 = values.iterator();
-        while (it1.hasNext() && it2.hasNext()) 
-        {
-            query += it1.next() + " = " + it2.next() + ",";
-        }
-        query = query.substring(0,query.length()-1);
-        if (!"".equals(conditions)){
-                query += " WHERE " + conditions;
-        }
-        executeActionQuery(query);
+        return (rs);
+        
     }
     
     public static void deleteTable(String table) throws SQLException{
