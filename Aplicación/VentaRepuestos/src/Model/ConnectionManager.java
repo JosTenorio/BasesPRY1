@@ -110,6 +110,7 @@ public class ConnectionManager {
         
     }
     
+    //check
     public static void deleteTable(String table) throws SQLException{
         delete (table,"","");
     }

@@ -38,11 +38,17 @@ public class Main {
             //EJEMPLO INSERTAR PARTE
 //            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
 
+            //EJEMPLO ASOCIAR PARTE-PROVEEDOR
+//            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
+
+            //EJEMPLO ASOCIAR PARTE-CARRO
+//            PartQuery.asociatePartCar("1", "Yaris", "2008");
+            
             //EJEMPLO INSERTAR ORDEN
 //            OrderQuery.insertOrder("25", "05", "2020", "1234567890", true);
 
             //EJEMPLO INSERTAR DETALLE
-//            OrderQuery.addDetail("4", "2", "5", "Super Repuestos");
+//            OrderQuery.addDetail("1", "1", "5", "Super Repuestos");
             
         } catch (SQLException ex) {
             System.out.println("FAILED TO CONNECT TO DATABASE");
