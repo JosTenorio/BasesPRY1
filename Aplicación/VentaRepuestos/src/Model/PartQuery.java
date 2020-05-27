@@ -74,7 +74,7 @@ public class PartQuery {
         ArrayList<String> values = new ArrayList<String>() { 
             {
                 add(partId);
-                add("(SELECT ID FROM AUTOMOVIL WHERE MODELo = '" + model + "' AND ANO = '" + year + "')");
+                add("(SELECT ID FROM AUTOMOVIL WHERE MODELO = '" + model + "' AND ANO = " + year + ")");
             } 
         };
         try {
@@ -84,8 +84,26 @@ public class PartQuery {
         }
     }
     
-    public static void modifyPartProviderPrice(){
-        
+    public static void modifyPartProvider(String partId, String provider, String providerPrice, String gainPercent){
+        ArrayList<String> columns = new ArrayList<String>() { 
+            { 
+                add("PRECIO_PROVEEDOR");
+                add("POR_GANANCIA");
+                add("PRECIO_PUBLICO");
+            } 
+        }; 
+        ArrayList<String> values = new ArrayList<String>() { 
+            {
+                add(providerPrice);
+                add(gainPercent);
+                add(gainPercent  + "/100.0 * " + providerPrice + " + " + providerPrice);
+            } 
+        };
+        try {
+            ConnectionManager.update("PROVISION", columns, values, "ID_PARTE = " + partId + "AND ID_PROVEEDOR = (SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "')");
+        } catch (SQLException ex) {
+            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
