@@ -110,21 +110,8 @@ public class ConnectionManager {
         
     }
     
-    //check
-    public static void deleteTable(String table) throws SQLException{
-        delete (table,"","");
-    }
-    
-    public static void deleteWithConditions(String table, String conditions) throws SQLException{
-        delete (table,"", conditions);
-    }
-    
-    public static void deleteWithSelection(String table, String selection) throws SQLException{
-        delete (table,selection,"");
-    }
-    
-    public static void delete(String table, String selection,String conditions) throws SQLException{
-        String query = "DELETE " + selection +" FROM " + table;
+    public static void delete(String table, String conditions) throws SQLException{
+        String query = "DELETE FROM " + table;
         if (!"".equals(conditions)){
                 query += " WHERE " + conditions;
         }

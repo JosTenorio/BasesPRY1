@@ -30,8 +30,12 @@ public class PartQuery {
         }
     }
     
-    public static void deletePart(){
-        
+    public static void deletePart(String partId){
+        try {
+            ConnectionManager.delete("PARTE", "ID = " + partId);
+        } catch (SQLException ex) {
+            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void asociatePartProvider(String partId, String provider, String providerPrice, String gainPercent){

@@ -43,6 +43,9 @@ public class Main {
 
             //EJEMPLO ASOCIAR PARTE-CARRO
 //            PartQuery.asociatePartCar("1", "Yaris", "2008");
+
+            //EJEMPLO BORRAR PARTE
+//            PartQuery.deletePart("1");
             
             //EJEMPLO INSERTAR ORDEN
 //            OrderQuery.insertOrder("25", "05", "2020", "1234567890", true);
