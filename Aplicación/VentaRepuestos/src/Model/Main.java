@@ -35,6 +35,23 @@ public class Main {
 //            };
 //            ClientQuery.insertClient("ACTIVO", info, phones, true);
 
+            //EJEMPLO MODIFICAR CLIENTE
+//            ArrayList<String> info = new ArrayList<>(){
+//                {
+//                    add("Estructuras S.A.");
+//                    add("Colindando Recope");
+//                    add("Cartago");
+//                    add("Javier Munoz");
+//                    add("CEO");
+//                }
+//            };
+//            ArrayList<String> phones = new ArrayList<>(){
+//                {
+//                    add("22732576");
+//                }
+//            };
+//            ClientQuery.modifyClient("1234567890", "INACTIVO", info, phones, true);
+
             //EJEMPLO INSERTAR PARTE
 //            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
 
@@ -42,13 +59,13 @@ public class Main {
 //            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
 
             //EJEMPLO ASOCIAR PARTE-CARRO
-            PartQuery.asociatePartCar("1", "Yaris", "2008");
+//            PartQuery.asociatePartCar("1", "Yaris", "2008");
 
             //EJEMPLO BORRAR PARTE
 //            PartQuery.deletePart("1");
 
             //EJEMPLO MODIFICAR PRECIOS DE PROVISION
-            PartQuery.modifyPartProvider("1", "Super Repuestos", "100", "20");
+ //           PartQuery.modifyPartProvider("1", "Super Repuestos", "100", "20");
             
             //EJEMPLO INSERTAR ORDEN
 //            OrderQuery.insertOrder("25", "05", "2020", "1234567890", true);
