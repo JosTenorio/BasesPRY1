@@ -26,15 +26,17 @@ public class PartQuery {
             };
             ConnectionManager.insert("PARTE", columns, values);
         } catch (SQLException ex) {
-            ErrorManager.PartInsertError(ex);
+            ErrorManager.partInsertError(ex);
         }
     }                                                                            
     
     public static void deletePart(String partId){
         try {
-            ConnectionManager.delete("PARTE", "ID = " + partId);
+            int rowsAffected = ConnectionManager.delete("PARTE", "ID = " + partId);
+            if (rowsAffected == 0)
+                throw new SQLException("No rows affected");
         } catch (SQLException ex) {
-            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorManager.deletePartError(ex);
         }
     }
     
@@ -60,7 +62,7 @@ public class PartQuery {
             };
             ConnectionManager.insert("PROVISION", columns, values);
         } catch (SQLException ex) {
-            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorManager.provitionInsertError(ex);
         }
     }
     
@@ -80,7 +82,7 @@ public class PartQuery {
             };
             ConnectionManager.insert("CORRESPONDENCIA", columns, values);
         } catch (SQLException ex) {
-            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorManager.insertCorrespondenceError(ex);
         }
     }
     
@@ -100,9 +102,11 @@ public class PartQuery {
                     add(gainPercent  + "/100.0 * " + providerPrice + " + " + providerPrice);
                 }
             };
-            ConnectionManager.update("PROVISION", columns, values, "ID_PARTE = " + partId + "AND ID_PROVEEDOR = (SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "')");
+            int rowsAffected = ConnectionManager.update("PROVISION", columns, values, "ID_PARTE = " + partId + " AND ID_PROVEEDOR = (SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "')");
+            if (rowsAffected == 0)
+                throw new SQLException("No rows affected");
         } catch (SQLException ex) {
-            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorManager.provitionUpdateError(ex);
         }
     }
 }

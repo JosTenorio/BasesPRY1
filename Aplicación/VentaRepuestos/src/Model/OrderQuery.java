@@ -21,43 +21,49 @@ public class OrderQuery {
                 {
                     add("'" + year + "-" + month + "-" + day + "'");
                     if (organization)
-                        add("(SELECT ID_CLIENTE FROM ORGANIZACION WHERE CEDULA_JUR = " + clientCed + ")");
+                        add("(SELECT ID_CLIENTE FROM ORGANIZACION WHERE CEDULA_JUR = '" + clientCed + "')");
                     else
-                        add("(SELECT ID_CLIENTE FROM PERSONA WHERE CEDULA = " + clientCed + ")");
+                        add("(SELECT ID_CLIENTE FROM PERSONA WHERE CEDULA = '" + clientCed + "')");
                 }
             };
             ConnectionManager.insert("ORDEN", columns, values);
         } catch (SQLException ex) {
-            Logger.getLogger(OrderQuery.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorManager.orderInsertError(ex, organization);
         }
     }
     
     public static void addDetail(String orderId, String partId, String amount, String provider){
         try {
-            ArrayList<String> columns = new ArrayList<String>() {
-                {
-                    add("ID");
-                    add("ID_ORDEN");
-                    add("ID_PARTE");
-                    add("CANTIDAD");
-                    add("ID_PROVEEDOR");
-                    add("PRECIO");
-                }
-            };
-            ArrayList<String> values = new ArrayList<String>() {
-                {
-                    if (ConnectionManager.select("ID", "DETALLE", "ID_ORDEN = " + orderId).next() == false)
-                        add("1");
-                    else
-                        add("(SELECT MAX(ID) + 1 FROM DETALLE WHERE ID_ORDEN = " + orderId + ")");
-                    add(orderId);
-                    add(partId);
-                    add(amount);
-                    add("(SELECT ID FROM PROVEEDOR WHERE NOMBRE = '"  + provider + "')");
-                    add("(SELECT PRECIO_PUBLICO * " + amount + " FROM PROVISION WHERE ID_PARTE = " + partId + " AND ID_PROVEEDOR = (SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "'))");
-                }
-            };
-            ConnectionManager.insert("DETALLE", columns, values);
+            try {
+                ArrayList<String> columns = new ArrayList<String>() {
+                    {
+                        add("ID");
+                        add("ID_ORDEN");
+                        add("ID_PARTE");
+                        add("CANTIDAD");
+                        add("ID_PROVEEDOR");
+                        add("PRECIO");
+                    }
+                };
+                ArrayList<String> values = new ArrayList<String>() {
+                    {
+                        if (ConnectionManager.select("ID", "DETALLE", "ID_ORDEN = " + orderId).next() == false)
+                            add("1");
+                        else
+                            add("(SELECT MAX(ID) + 1 FROM DETALLE WHERE ID_ORDEN = " + orderId + ")");
+                        add(orderId);
+                        add(partId);
+                        add(amount);
+                        add("(SELECT ID FROM PROVEEDOR WHERE NOMBRE = '"  + provider + "')");
+                        add("(SELECT PRECIO_PUBLICO * " + amount + " FROM PROVISION WHERE ID_PARTE = " + partId + " AND ID_PROVEEDOR = (SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "'))");
+                    }
+                };
+                ConnectionManager.insert("DETALLE", columns, values);
+            }catch (SQLException ex) {
+                ErrorManager.detailInsertError(ex);
+                throw new PreviousSQLException (ex.getMessage());
+            }
+            try {
             ResultSet rs1 = ConnectionManager.select("MONTO_BASE", "ORDEN", "ID = " + orderId);
             rs1.next();
             String oldCost = String.valueOf(rs1.getFloat("MONTO_BASE"));
@@ -65,8 +71,11 @@ public class OrderQuery {
             rs2.next();
             String currentCost = String.valueOf(rs2.getFloat("PRECIO"));
             ConnectionManager.update("ORDEN", "MONTO_BASE",oldCost + " + " + currentCost, "ID = " + orderId);
-        } catch (SQLException ex) {
-            Logger.getLogger(OrderQuery.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (SQLException ex){
+                ErrorManager.orderUpdateError (ex);
+                throw new PreviousSQLException (ex.getMessage());
+            }
+        } catch (PreviousSQLException ex) {
         }
     }
 }

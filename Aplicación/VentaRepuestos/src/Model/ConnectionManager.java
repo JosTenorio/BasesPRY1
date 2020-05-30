@@ -44,6 +44,13 @@ public class ConnectionManager {
         return rs;
     }
     
+    private static int executeUpdateQuery(String query) throws SQLException {
+        if (connection == null)
+            connect();
+        System.out.println(query);
+        return statement.executeUpdate(query);
+    }
+    
     public static void insert(String table, String column, String value) throws SQLException{
         insert(table, new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(value)));
     }
@@ -69,7 +76,7 @@ public class ConnectionManager {
         update(table, new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(value)), conditions);
     }
     
-    public static void update(String table, ArrayList<String> columns, ArrayList<String> values, String conditions) throws SQLException{
+    public static int update(String table, ArrayList<String> columns, ArrayList<String> values, String conditions) throws SQLException{
         String query = "UPDATE " + table + " SET ";
         Iterator i1 = columns.iterator();
         Iterator i2 = values.iterator();
@@ -81,7 +88,7 @@ public class ConnectionManager {
         if (!"".equals(conditions)){
                 query += " WHERE " + conditions;
         }
-        executeActionQuery(query);
+        return executeUpdateQuery(query);
     }
     
     public static ResultSet select(String column, String table, String conditions) throws SQLException{
@@ -110,12 +117,12 @@ public class ConnectionManager {
         
     }
     
-    public static void delete(String table, String conditions) throws SQLException{
+    public static int delete(String table, String conditions) throws SQLException{
         String query = "DELETE FROM " + table;
         if (!"".equals(conditions)){
                 query += " WHERE " + conditions;
         }
-        executeActionQuery(query);
+        return executeUpdateQuery(query);
     }
     
 }
