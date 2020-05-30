@@ -1,12 +1,43 @@
 
 package View;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 public class MainMenuDisplay extends javax.swing.JFrame {
 
     public MainMenuDisplay() {
         initComponents();
+        createIcons();
     }
 
+    private void createIcons(){
+        BufferedImage imgClient = null;
+        try {
+            imgClient = ImageIO.read(new File("src/Assets/Client.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        jLabel_Client.setIcon(new ImageIcon(imgClient.getScaledInstance(jLabel_Client.getWidth(), jLabel_Client.getHeight(), Image.SCALE_SMOOTH)));
+        BufferedImage imgPart = null;
+        try {
+            imgPart = ImageIO.read(new File("src/Assets/Part.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        jLabel_Part.setIcon(new ImageIcon(imgPart.getScaledInstance(jLabel_Part.getWidth(), jLabel_Part.getHeight(), Image.SCALE_SMOOTH)));
+        BufferedImage imgOrder = null;
+        try {
+            imgOrder = ImageIO.read(new File("src/Assets/Order.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        jLabel_Order.setIcon(new ImageIcon(imgOrder.getScaledInstance(jLabel_Order.getWidth(), jLabel_Order.getHeight(), Image.SCALE_SMOOTH)));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -17,18 +48,101 @@ public class MainMenuDisplay extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel_BG = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel_Title = new javax.swing.JLabel();
+        jButton_Client = new javax.swing.JButton();
+        jButton_Part = new javax.swing.JButton();
+        jButton_Order = new javax.swing.JButton();
+        jLabel_Order = new javax.swing.JLabel();
+        jLabel_Client = new javax.swing.JLabel();
+        jLabel_Part = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel_BG.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+
+        jLabel_Title.setFont(new java.awt.Font("Gill Sans MT", 1, 42)); // NOI18N
+        jLabel_Title.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Title.setText("VENTA DE REPUESTOS");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(270, Short.MAX_VALUE)
+                .addComponent(jLabel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jButton_Client.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Client.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Client.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Client.setText("CLIENTES");
+
+        jButton_Part.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Part.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Part.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Part.setText("PARTES");
+
+        jButton_Order.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Order.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Order.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Order.setText("ORDENES");
+
+        jLabel_Order.setPreferredSize(new java.awt.Dimension(40, 40));
+
+        jLabel_Client.setPreferredSize(new java.awt.Dimension(40, 40));
+
+        jLabel_Part.setPreferredSize(new java.awt.Dimension(40, 40));
 
         javax.swing.GroupLayout jPanel_BGLayout = new javax.swing.GroupLayout(jPanel_BG);
         jPanel_BG.setLayout(jPanel_BGLayout);
         jPanel_BGLayout.setHorizontalGroup(
             jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel_BGLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_Part, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_Order, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_BGLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
+                .addComponent(jLabel_Part, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(jLabel_Order, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
         );
         jPanel_BGLayout.setVerticalGroup(
             jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel_BGLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_Order, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Client, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Part, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Part, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Order, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -46,6 +160,14 @@ public class MainMenuDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jButton_Client;
+    public javax.swing.JButton jButton_Order;
+    public javax.swing.JButton jButton_Part;
+    public javax.swing.JLabel jLabel_Client;
+    public javax.swing.JLabel jLabel_Order;
+    public javax.swing.JLabel jLabel_Part;
+    public javax.swing.JLabel jLabel_Title;
+    private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel_BG;
     // End of variables declaration//GEN-END:variables
 }

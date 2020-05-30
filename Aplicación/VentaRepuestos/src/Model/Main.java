@@ -65,7 +65,7 @@ public class Main {
 //            PartQuery.deletePart("1");
 
             //EJEMPLO MODIFICAR PRECIOS DE PROVISION
- //           PartQuery.modifyPartProvider("1", "Super Repuestos", "100", "20");
+//           PartQuery.modifyPartProvider("1", "Super Repuestos", "100", "20");
             
             //EJEMPLO INSERTAR ORDEN
 //            OrderQuery.insertOrder("25", "05", "2020", "1234567890", true);
