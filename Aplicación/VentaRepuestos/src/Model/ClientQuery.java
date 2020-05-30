@@ -15,12 +15,17 @@ public class ClientQuery {
             insertClientAux(information, organization);
             insertPhone(information.get(0), telephones, organization);
         } catch (SQLException ex) {
-            Logger.getLogger(ClientQuery.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            ErrorManager.clientInsertError(ex);
+        } catch (PreviousSQLException ex) {
+            try {
+                ConnectionManager.delete("CLIENTE"," ID = (SELECT MAX(ID) FROM CLIENTE)");
+            } catch (SQLException ex1) {
+                Logger.getLogger(ClientQuery.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }     
     }
     
-    private static void insertClientAux(ArrayList<String> information, boolean organization){
-        try {
+    private static void insertClientAux(ArrayList<String> information, boolean organization) throws PreviousSQLException {
             ArrayList<String> columns = new ArrayList<>(){
                 {
                     if (organization){
@@ -40,20 +45,28 @@ public class ClientQuery {
                     add("ID_CLIENTE");
                 }
             };
-            for (int i = 1; i < information.size(); i++)
+            for (int i = 0; i < information.size(); i++)
                 information.set(i, "'" + information.get(i) + "'");
             information.add("(SELECT MAX(ID) FROM CLIENTE)");
-            if (organization)
-                ConnectionManager.insert("ORGANIZACION", columns, information);
-            else
-                ConnectionManager.insert("PERSONA", columns, information);
-        } catch (SQLException ex) {
-            Logger.getLogger(ClientQuery.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            if (organization) {
+                try {
+                    ConnectionManager.insert("ORGANIZACION", columns, information);
+                }catch (SQLException ex) {
+                    ErrorManager.organizationInsertError(ex);
+                    throw new PreviousSQLException ("Error de insercion de datos de organizacion");
+                }
+            }
+            else {
+                try {
+                    ConnectionManager.insert("PERSONA", columns, information);
+                } catch (SQLException ex) {
+                    ErrorManager.personInsertError(ex);
+                    throw new PreviousSQLException ("Error de insercion de datos de perosona");
+                }
+            }
     }
     
-    private static void insertPhone(String clientCed, ArrayList<String> telephones, boolean organization){
-        try {
+    private static void insertPhone(String clientCed, ArrayList<String> telephones, boolean organization) throws PreviousSQLException{
             ArrayList<String> columns = new ArrayList<>(){
                 {
                     if (organization)
@@ -71,26 +84,31 @@ public class ClientQuery {
             };
             if (organization)
                 for (String telephone : telephones){ 
-                    values.set(1, telephone);
-                    ConnectionManager.insert("TELEFONOS_ORGANIZACION", columns, values);
+                    values.set(1,"'" + telephone + "'");
+                    try {
+                        ConnectionManager.insert("TELEFONOS_ORGANIZACION", columns, values);
+                    } catch (SQLException ex) {
+                        ErrorManager.telephoneInsertError(ex, telephone);
+                    }
                 }
             else
                 for (String telephone : telephones){
-                    values.set(1, telephone);
-                    ConnectionManager.insert("TELEFONOS_PERSONA", columns, values);
+                    values.set(1, "'" + telephone + "'" );
+                    try {
+                        ConnectionManager.insert("TELEFONOS_PERSONA", columns, values);
+                    } catch (SQLException ex) {
+                        ErrorManager.telephoneInsertError(ex, telephone);
+                    }
                 }
-        } catch (SQLException ex) {
-            Logger.getLogger(ClientQuery.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
     public static void modifyClient(String clientCed, String status, ArrayList<String> information, ArrayList<String> telephones, boolean organization){
         try {
             ResultSet rs;
             if (organization)
-                rs = ConnectionManager.select("ID_CLIENTE", "ORGANIZACION", "CEDULA_JUR = " + clientCed);
+                rs = ConnectionManager.select("ID_CLIENTE", "ORGANIZACION", "CEDULA_JUR = '" + clientCed + "'");
             else
-                rs = ConnectionManager.select("ID_CLIENTE", "PERSONA", "CEDULA = " + clientCed);
+                rs = ConnectionManager.select("ID_CLIENTE", "PERSONA", "CEDULA = '" + clientCed + "'");
             rs.next();
             String clientId = String.valueOf(rs.getInt("ID_CLIENTE"));
             ConnectionManager.update("CLIENTE", "ID_ESTADO", "(SELECT ID FROM ESTADO WHERE TIPO = '" + status + "')", "ID = " + clientId);
@@ -101,12 +119,13 @@ public class ClientQuery {
                 ConnectionManager.delete("TELEFONOS_PERSONA", "CEDULA_PERSONA = " + clientCed);
             insertPhone(clientCed, telephones, organization);
         } catch (SQLException ex) {
-            Logger.getLogger(ClientQuery.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorManager.clientUpdateError(ex,organization);
+        } catch (PreviousSQLException ex) {
+            
         }
     }
     
-    public static void modifyClientAux(String clientId, ArrayList<String> information, boolean organization){
-        try {
+    public static void modifyClientAux(String clientId, ArrayList<String> information, boolean organization) throws SQLException{
             ArrayList<String> columns = new ArrayList<>(){
                 {
                     if (organization){
@@ -129,8 +148,5 @@ public class ClientQuery {
                 ConnectionManager.update("ORGANIZACION", columns, information, "ID_CLIENTE = " + clientId);
             else
                 ConnectionManager.update("PERSONA", columns, information, "ID_CLIENTE = " + clientId);
-        } catch (SQLException ex) {
-            Logger.getLogger(ClientQuery.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 }
