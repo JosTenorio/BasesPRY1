@@ -2,7 +2,6 @@
 package Model;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class ErrorManager {
     

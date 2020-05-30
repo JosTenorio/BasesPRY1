@@ -3,33 +3,14 @@ package Model;
 
 import Controller.MainMenuController;
 import View.MainMenuDisplay;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
     
     public static void main(String[] args){
-            ConnectionManager.logIn("192.168.1.10", "sa", "2019064588");
-            //ConnectionManager.logIn("192.168.100.45", "sa", "12345");
+            //ConnectionManager.logIn("192.168.1.10", "sa", "2019064588");
+            ConnectionManager.logIn("192.168.100.45", "sa", "12345");
             MainMenuController controller = new MainMenuController(new MainMenuDisplay()); 
-            //EJEMPLO INSERTAR CLIENTE
-//            ArrayList<String> info = new ArrayList<>(){
-//                {
-//                    add("117910466");
-//                    add("Joseph Tenorio");
-//                    add("Colegio Edgar Cervantez");
-//                    add("Hatillo");
-//                }
-//            };
-//            ArrayList<String> phones = new ArrayList<>(){
-//                {
-//                   add("22521281");
-//                   add("22521281");
-//                }
-//            };
-//            ClientQuery.insertClient("INACTIVO", info, phones, false);
 
             //EJEMPLO MODIFICAR CLIENTE
 //            ArrayList<String> info = new ArrayList<>(){
@@ -53,7 +34,7 @@ public class Main {
 //            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
 
             //EJEMPLO ASOCIAR PARTE-PROVEEDOR
-            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
+//            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
 
             //EJEMPLO ASOCIAR PARTE-CARRO
 //            PartQuery.asociatePartCar("1", "Yaris", "2008");
