@@ -26,9 +26,9 @@ public class PartQuery {
             };
             ConnectionManager.insert("PARTE", columns, values);
         } catch (SQLException ex) {
-            Logger.getLogger(PartQuery.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorManager.PartInsertError(ex);
         }
-    }
+    }                                                                            
     
     public static void deletePart(String partId){
         try {

@@ -11,52 +11,49 @@ import java.util.logging.Logger;
 public class Main {
     
     public static void main(String[] args){
-        try {
-            //ConnectionManager.logIn("192.168.1.10", "sa", "2019064588");
-            ConnectionManager.logIn("192.168.100.45", "sa", "12345");
-            ConnectionManager.connect();
+            ConnectionManager.logIn("192.168.1.10", "sa", "2019064588");
+            //ConnectionManager.logIn("192.168.100.45", "sa", "12345");
             MainMenuController controller = new MainMenuController(new MainMenuDisplay()); 
-            
             //EJEMPLO INSERTAR CLIENTE
 //            ArrayList<String> info = new ArrayList<>(){
 //                {
-//                    add("1234567890");
-//                    add("Estructuras S.A.");
-//                    add("Colindando Recope");
-//                    add("Ochomogo");
-//                    add("Javier Munoz");
-//                    add("Gerente");
+//                    add("117910466");
+//                    add("Joseph Tenorio");
+//                    add("Colegio Edgar Cervantez");
+//                    add("Hatillo");
 //                }
 //            };
 //            ArrayList<String> phones = new ArrayList<>(){
 //                {
-//                    add("83215553");
+//                   add("22521281");
+//                   add("22521281");
 //                }
 //            };
-//            ClientQuery.insertClient("ACTIVO", info, phones, true);
+//            ClientQuery.insertClient("INACTIVO", info, phones, false);
 
             //EJEMPLO MODIFICAR CLIENTE
 //            ArrayList<String> info = new ArrayList<>(){
 //                {
-//                    add("Estructuras S.A.");
-//                    add("Colindando Recope");
+//                    add("Jose Pablo Muñoz");
+//                    add("Colindando Protecto");
 //                    add("Cartago");
-//                    add("Javier Munoz");
-//                    add("CEO");
 //                }
+//                
 //            };
 //            ArrayList<String> phones = new ArrayList<>(){
 //                {
 //                    add("22732576");
+//                    add("785496325");
+//                    add("89230091");
 //                }
 //            };
-//            ClientQuery.modifyClient("1234567890", "INACTIVO", info, phones, true);
+//            ClientQuery.modifyClient("117910466", "INACTIVO", info, phones, false);
 
             //EJEMPLO INSERTAR PARTE
 //            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
 
             //EJEMPLO ASOCIAR PARTE-PROVEEDOR
-//            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
+            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
 
             //EJEMPLO ASOCIAR PARTE-CARRO
 //            PartQuery.asociatePartCar("1", "Yaris", "2008");
@@ -73,9 +70,5 @@ public class Main {
             //EJEMPLO INSERTAR DETALLE
 //            OrderQuery.addDetail("1", "1", "5", "Super Repuestos");
             
-        } catch (SQLException ex) {
-            System.out.println("FAILED TO CONNECT TO DATABASE");
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
     } 
 }
