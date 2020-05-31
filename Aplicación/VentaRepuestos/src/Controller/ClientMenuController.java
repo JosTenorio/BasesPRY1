@@ -33,10 +33,11 @@ public class ClientMenuController implements ActionListener{
     public void makeVisible(boolean visible){
         display.setVisible(visible);
         if (visible == true)
-            setTableData();
+            updateTableData();
     }
     
-    private void setTableData(){
+    public void updateTableData(){
+        display.tableModel.setRowCount(0);
         clientList = ConsultQuery.listClients();
         for (ArrayList<String> list : clientList){
             String[] row = {list.get(1), list.get(2), list.get(list.size()-1)};
@@ -53,7 +54,7 @@ public class ClientMenuController implements ActionListener{
             display.setVisible(false);
         }
         if (e.getSource().equals(display.jButton_NewClient)){
-            ClientInformationController.getInstance().makeVisible(true);
+            ClientInformationController.getInstance().makeVisible(true, true);
         }
     }
 }
