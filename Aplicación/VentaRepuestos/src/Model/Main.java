@@ -2,6 +2,7 @@
 package Model;
 
 import Controller.MainMenuController;
+import java.util.ArrayList;
 
 public class Main {
     
@@ -14,7 +15,7 @@ public class Main {
             //EJEMPLO INSERTAR CLIENTE
 //            ArrayList<String> info = new ArrayList<>(){
 //                {
-//                    add("1234567890");
+//                    add("0123456789");
 //                    add("Estructuras S.A.");
 //                    add("Colindando Recope");
 //                    add("Ochomogo");

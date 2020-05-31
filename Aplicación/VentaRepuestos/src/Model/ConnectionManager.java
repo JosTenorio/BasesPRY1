@@ -91,8 +91,16 @@ public class ConnectionManager {
         return executeUpdateQuery(query);
     }
     
+    public static ResultSet select(ArrayList<String> columns, String table) throws SQLException{
+        return select(columns, new ArrayList<>(Arrays.asList(table)), "");
+    }
+    
     public static ResultSet select(String column, String table, String conditions) throws SQLException{
         return select(new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(table)), conditions);
+    }
+    
+    public static ResultSet select(ArrayList<String> columns, String table, String conditions) throws SQLException{
+        return select(columns, new ArrayList<>(Arrays.asList(table)), conditions);
     }
     
     public static ResultSet select(ArrayList<String> columns, ArrayList <String> tables, String conditions) throws SQLException{

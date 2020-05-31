@@ -20,8 +20,10 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel_Title = new javax.swing.JLabel();
         jButton_NewClient = new javax.swing.JButton();
-        jButton_ModifyClient = new javax.swing.JButton();
-        jButton_ViewClients = new javax.swing.JButton();
+        jButton_Back = new javax.swing.JButton();
+        jTextField_SearchClients = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable_Clients = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,15 +58,38 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         jButton_NewClient.setForeground(new java.awt.Color(255, 255, 255));
         jButton_NewClient.setText("AGREGAR CLIENTE");
 
-        jButton_ModifyClient.setBackground(new java.awt.Color(153, 0, 0));
-        jButton_ModifyClient.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
-        jButton_ModifyClient.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_ModifyClient.setText("MODIFICAR CLIENTE");
+        jButton_Back.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Back.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Back.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Back.setText("REGRESAR");
 
-        jButton_ViewClients.setBackground(new java.awt.Color(153, 0, 0));
-        jButton_ViewClients.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
-        jButton_ViewClients.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_ViewClients.setText("LISTAR CLIENTES");
+        jTextField_SearchClients.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+
+        jTable_Clients.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        jTable_Clients.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Cedula", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable_Clients);
 
         javax.swing.GroupLayout jPanel_BGLayout = new javax.swing.GroupLayout(jPanel_BG);
         jPanel_BG.setLayout(jPanel_BGLayout);
@@ -72,24 +97,29 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
             jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_BGLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_NewClient, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                    .addComponent(jButton_ModifyClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton_ViewClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel_BGLayout.createSequentialGroup()
+                        .addComponent(jButton_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField_SearchClients, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_NewClient)))
+                .addContainerGap())
         );
         jPanel_BGLayout.setVerticalGroup(
             jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_BGLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addComponent(jButton_NewClient, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(jButton_ModifyClient, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jButton_ViewClients, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton_NewClient, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jButton_Back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField_SearchClients))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,11 +137,13 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton_ModifyClient;
+    public javax.swing.JButton jButton_Back;
     public javax.swing.JButton jButton_NewClient;
-    public javax.swing.JButton jButton_ViewClients;
     public javax.swing.JLabel jLabel_Title;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel_BG;
+    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JTable jTable_Clients;
+    public javax.swing.JTextField jTextField_SearchClients;
     // End of variables declaration//GEN-END:variables
 }
