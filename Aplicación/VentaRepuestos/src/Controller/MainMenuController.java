@@ -7,23 +7,37 @@ import java.awt.event.ActionListener;
 
 public class MainMenuController implements ActionListener{
     
-    private MainMenuDisplay display;
+    private static final MainMenuDisplay display = new MainMenuDisplay();
+    private static MainMenuController firstInstance = null;
     
-    public MainMenuController(MainMenuDisplay display){
-        this.display = display;
-        this.init();
+    private MainMenuController(){
+        init();
+    }
+    
+    public static MainMenuController getInstance(){
+        if (firstInstance == null)
+            firstInstance = new MainMenuController();
+        return firstInstance;
     }
     
     private void init(){
-        //add all action listeners here
+        display.jButton_Client.addActionListener(this);
+        display.jButton_Order.addActionListener(this);
+        display.jButton_Part.addActionListener(this);
         display.setResizable(false);
         display.setLocationRelativeTo(null);
-        display.setVisible(true);
     }
+    
+    public void makeVisible(boolean visible){
+        display.setVisible(visible);
+    }
+            
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //handle all window actions here
+        if (e.getSource().equals(display.jButton_Client))
+            ClientMenuController.getInstance().makeVisible(true);
+        display.setVisible(false);
     }
     
 }
