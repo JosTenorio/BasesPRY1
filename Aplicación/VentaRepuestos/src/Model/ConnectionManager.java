@@ -95,6 +95,10 @@ public class ConnectionManager {
         return select(columns, new ArrayList<>(Arrays.asList(table)), "");
     }
     
+    public static ResultSet select(String column, String table) throws SQLException{
+        return select(new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(table)), "");
+    }
+    
     public static ResultSet select(String column, String table, String conditions) throws SQLException{
         return select(new ArrayList<>(Arrays.asList(column)), new ArrayList<>(Arrays.asList(table)), conditions);
     }

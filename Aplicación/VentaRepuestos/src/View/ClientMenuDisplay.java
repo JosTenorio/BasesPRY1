@@ -1,10 +1,17 @@
 
 package View;
 
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 public class ClientMenuDisplay extends javax.swing.JFrame {
+    
+    public DefaultTableModel tableModel;
 
     public ClientMenuDisplay() {
         initComponents();
+        this.tableModel = (DefaultTableModel) jTable_Clients.getModel();
     }
 
     /**
@@ -17,7 +24,7 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel_BG = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel_Header = new javax.swing.JPanel();
         jLabel_Title = new javax.swing.JLabel();
         jButton_NewClient = new javax.swing.JButton();
         jButton_Back = new javax.swing.JButton();
@@ -29,25 +36,25 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
 
         jPanel_BG.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel_Header.setBackground(new java.awt.Color(153, 0, 0));
 
         jLabel_Title.setFont(new java.awt.Font("Gill Sans MT", 1, 42)); // NOI18N
         jLabel_Title.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_Title.setText("VENTA DE REPUESTOS");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_HeaderLayout = new javax.swing.GroupLayout(jPanel_Header);
+        jPanel_Header.setLayout(jPanel_HeaderLayout);
+        jPanel_HeaderLayout.setHorizontalGroup(
+            jPanel_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_HeaderLayout.createSequentialGroup()
                 .addContainerGap(268, Short.MAX_VALUE)
                 .addComponent(jLabel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(269, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel_HeaderLayout.setVerticalGroup(
+            jPanel_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_HeaderLayout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(jLabel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -64,6 +71,11 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         jButton_Back.setText("REGRESAR");
 
         jTextField_SearchClients.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        jTextField_SearchClients.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField_SearchClientsKeyReleased(evt);
+            }
+        });
 
         jTable_Clients.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         jTable_Clients.setModel(new javax.swing.table.DefaultTableModel(
@@ -95,7 +107,7 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         jPanel_BG.setLayout(jPanel_BGLayout);
         jPanel_BGLayout.setHorizontalGroup(
             jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel_Header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_BGLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +123,7 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         jPanel_BGLayout.setVerticalGroup(
             jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_BGLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel_Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton_NewClient, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
@@ -136,12 +148,19 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField_SearchClientsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_SearchClientsKeyReleased
+        String query = jTextField_SearchClients.getText();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
+        jTable_Clients.setRowSorter(sorter);
+        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + query));
+    }//GEN-LAST:event_jTextField_SearchClientsKeyReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Back;
     public javax.swing.JButton jButton_NewClient;
-    public javax.swing.JLabel jLabel_Title;
-    private javax.swing.JPanel jPanel1;
-    public javax.swing.JPanel jPanel_BG;
+    private javax.swing.JLabel jLabel_Title;
+    private javax.swing.JPanel jPanel_BG;
+    private javax.swing.JPanel jPanel_Header;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable_Clients;
     public javax.swing.JTextField jTextField_SearchClients;

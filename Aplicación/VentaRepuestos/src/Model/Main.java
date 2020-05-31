@@ -11,7 +11,7 @@ public class Main {
             ConnectionManager.logIn("192.168.100.45", "sa", "12345");
             MainMenuController controller = MainMenuController.getInstance();
             controller.makeVisible(true);
-
+            
             //EJEMPLO INSERTAR CLIENTE
 //            ArrayList<String> info = new ArrayList<>(){
 //                {

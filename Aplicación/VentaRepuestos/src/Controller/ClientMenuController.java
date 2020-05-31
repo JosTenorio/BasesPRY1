@@ -6,7 +6,6 @@ import View.ClientMenuDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 
 public class ClientMenuController implements ActionListener{
     
@@ -39,23 +38,22 @@ public class ClientMenuController implements ActionListener{
     
     private void setTableData(){
         clientList = ConsultQuery.listClients();
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Nombre");
-        model.addColumn("Cedula");
-        model.addColumn("Estado");
         for (ArrayList<String> list : clientList){
             String[] row = {list.get(1), list.get(2), list.get(list.size()-1)};
-            System.out.println("Row:" + row[0] + row[1] + row[2]);
-            model.addRow(row);
+            display.tableModel.addRow(row);
         }
-        display.jTable_Clients.setModel(model);
+        display.jTable_Clients.setModel(display.tableModel);
     }
             
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(display.jButton_Back))
+        if (e.getSource().equals(display.jButton_Back)){
             MainMenuController.getInstance().makeVisible(true);
-        display.setVisible(false);
+            display.setVisible(false);
+        }
+        if (e.getSource().equals(display.jButton_NewClient)){
+            ClientInformationController.getInstance().makeVisible(true);
+        }
     }
 }

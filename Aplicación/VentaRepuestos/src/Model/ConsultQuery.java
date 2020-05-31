@@ -57,6 +57,19 @@ public class ConsultQuery {
        return clientList;
    }
    
+   public static ArrayList<String> listStatus(){
+       ArrayList<String> statusList = new ArrayList<>();
+       try {
+           ResultSet rs = ConnectionManager.select("TIPO", "ESTADO");
+           while(rs.next()){
+               statusList.add(rs.getString("TIPO"));
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return statusList;
+   }
+   
    public static ArrayList<ArrayList<String>> listPartsForCar(){
        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
        return result;
