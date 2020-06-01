@@ -2,7 +2,6 @@
 package Model;
 
 import Controller.MainMenuController;
-import java.util.ArrayList;
 
 public class Main {
     
@@ -11,41 +10,6 @@ public class Main {
             ConnectionManager.logIn("192.168.100.45", "sa", "12345");
             MainMenuController controller = MainMenuController.getInstance();
             controller.makeVisible(true);
-            
-            //EJEMPLO INSERTAR CLIENTE
-//            ArrayList<String> info = new ArrayList<>(){
-//                {
-//                    add("0123456789");
-//                    add("Estructuras S.A.");
-//                    add("Colindando Recope");
-//                    add("Ochomogo");
-//                    add("Javier Munoz");
-//                    add("Gerente");
-//                }
-//            };
-//            ArrayList<String> phones = new ArrayList<>(){
-//                {
-//                    add("83215553");
-//                }
-//            };
-//            ClientQuery.insertClient("ACTIVO", info, phones, true);
-
-            //EJEMPLO MODIFICAR CLIENTE
-//            ArrayList<String> info = new ArrayList<>(){
-//                {
-//                    add("Estructuras S.A.");
-//                    add("Colindando Recope");
-//                    add("Cartago");
-//                    add("Javier Munoz");
-//                    add("CEO");
-//                }
-//            };
-//            ArrayList<String> phones = new ArrayList<>(){
-//                {
-//                    add("22732576");
-//                }
-//            };
-//            ClientQuery.modifyClient("1234567890", "INACTIVO", info, phones, true);
 
             //EJEMPLO INSERTAR PARTE
 //            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");

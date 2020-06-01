@@ -1,6 +1,7 @@
 
 package View;
 
+import javax.swing.JPopupMenu;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -8,12 +9,21 @@ import javax.swing.table.TableRowSorter;
 public class ClientMenuDisplay extends javax.swing.JFrame {
     
     public DefaultTableModel tableModel;
+    public JPopupMenu popUpMenu;
 
     public ClientMenuDisplay() {
         initComponents();
         this.tableModel = (DefaultTableModel) jTable_Clients.getModel();
+        popUpMenu = new JPopupMenu();
     }
-
+    
+    public void filterSearch(){
+        String query = jTextField_SearchClients.getText();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
+        jTable_Clients.setRowSorter(sorter);
+        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + query));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,10 +159,7 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField_SearchClientsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_SearchClientsKeyReleased
-        String query = jTextField_SearchClients.getText();
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
-        jTable_Clients.setRowSorter(sorter);
-        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + query));
+        filterSearch();
     }//GEN-LAST:event_jTextField_SearchClientsKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

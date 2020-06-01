@@ -9,11 +9,23 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
 
     public ClientInformationDisplay() {
         initComponents();
-        jLabel_ContactName.setEnabled(false);
-        jLabel_ContactCharge.setEnabled(false);
-        jTextField_ContactName.setEnabled(false);
-        jTextField_ContactCharge.setEnabled(false);
+        updateTextFields();
         this.comboBoxModel = (DefaultComboBoxModel) jComboBox_Status.getModel();
+    }
+    
+    public void updateTextFields(){
+        if (jCheckBox_Org.isSelected()){
+            jLabel_ContactName.setEnabled(true);
+            jLabel_ContactCharge.setEnabled(true);
+            jTextField_ContactName.setEnabled(true);
+            jTextField_ContactCharge.setEnabled(true);
+        }
+        else{
+            jLabel_ContactName.setEnabled(false);
+            jLabel_ContactCharge.setEnabled(false);
+            jTextField_ContactName.setEnabled(false);
+            jTextField_ContactCharge.setEnabled(false);
+        }
     }
 
     /**
@@ -258,18 +270,7 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox_OrgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox_OrgMouseClicked
-        if (jCheckBox_Org.isSelected()){
-            jLabel_ContactName.setEnabled(true);
-            jLabel_ContactCharge.setEnabled(true);
-            jTextField_ContactName.setEnabled(true);
-            jTextField_ContactCharge.setEnabled(true);
-        }
-        else{
-            jLabel_ContactName.setEnabled(false);
-            jLabel_ContactCharge.setEnabled(false);
-            jTextField_ContactName.setEnabled(false);
-            jTextField_ContactCharge.setEnabled(false);
-        }
+        updateTextFields();
     }//GEN-LAST:event_jCheckBox_OrgMouseClicked
 
 
