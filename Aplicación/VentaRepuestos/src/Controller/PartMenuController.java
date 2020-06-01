@@ -2,7 +2,7 @@
 package Controller;
 
 import Model.ConsultQuery;
-import View.ClientMenuDisplay;
+import View.PartMenuDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -12,24 +12,24 @@ import java.util.Arrays;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 
-public class ClientMenuController implements ActionListener{
+public class PartMenuController implements ActionListener{
     
-    private static final ClientMenuDisplay display = new ClientMenuDisplay();
-    private static ClientMenuController firstInstance = null;
-    private ArrayList<String[]> clientList;
+    private static final PartMenuDisplay display = new PartMenuDisplay();
+    private static PartMenuController firstInstance = null;
+    private ArrayList<String[]> partList;
     
-    private ClientMenuController(){
+    private PartMenuController(){
         init();
     }
     
-    public static ClientMenuController getInstance(){
+    public static PartMenuController getInstance(){
         if (firstInstance == null)
-            firstInstance = new ClientMenuController();
+            firstInstance = new PartMenuController();
         return firstInstance;
     }
     
     private void init(){
-        display.jButton_NewClient.addActionListener(this);
+        display.jButton_NewPart.addActionListener(this);
         display.jButton_Back.addActionListener(this);
         initPopUpMenu();
         initTable();
@@ -38,23 +38,21 @@ public class ClientMenuController implements ActionListener{
     }
     
     private void initPopUpMenu(){
-        JMenuItem modify = new JMenuItem("Modificar");
-        modify.addActionListener(new ActionListener(){
+        JMenuItem delete = new JMenuItem("Eliminar");
+        delete.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                int index = display.jTable_Clients.getSelectedRow();
+                int index = display.jTable_Parts.getSelectedRow();
                 if (index != -1){
-                    String[] client = ConsultQuery.getClient(clientList.get(index));
-                    ClientInformationController.getInstance().makeVisible(true, false);
-                    ClientInformationController.getInstance().setClientInfo(client);
+                    //handle deletion
                 }
             }
         });
-        display.popUpMenu.add(modify);
+        display.popUpMenu.add(delete);
     }
     
     private void initTable(){
-        display.jTable_Clients.addMouseListener(new MouseAdapter(){
+        display.jTable_Parts.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
                 if (SwingUtilities.isRightMouseButton(e))
@@ -71,10 +69,10 @@ public class ClientMenuController implements ActionListener{
     
     public void updateTableData(){
         display.tableModel.setRowCount(0);
-        clientList = ConsultQuery.listClients();
-        for (String[] client : clientList)
-            display.tableModel.addRow(Arrays.copyOfRange(client, 1, 4));
-        display.jTable_Clients.setModel(display.tableModel);
+        partList = ConsultQuery.listParts();
+        for (String[] part : partList)
+            display.tableModel.addRow(Arrays.copyOfRange(part, 1, 4));
+        display.jTable_Parts.setModel(display.tableModel);
     }
             
 
@@ -84,8 +82,8 @@ public class ClientMenuController implements ActionListener{
             MainMenuController.getInstance().makeVisible(true);
             display.setVisible(false);
         }
-        if (e.getSource().equals(display.jButton_NewClient)){
-            ClientInformationController.getInstance().makeVisible(true, true);
+        if (e.getSource().equals(display.jButton_NewPart)){
+            //hanlde addition of parts
         }
     }
 }

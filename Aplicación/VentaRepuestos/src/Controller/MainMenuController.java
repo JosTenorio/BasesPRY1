@@ -24,6 +24,8 @@ public class MainMenuController implements ActionListener{
         display.jButton_Client.addActionListener(this);
         display.jButton_Order.addActionListener(this);
         display.jButton_Part.addActionListener(this);
+        display.jButton_Provider.addActionListener(this);
+        display.jButton_Auto.addActionListener(this);
         display.setResizable(false);
         display.setLocationRelativeTo(null);
     }
@@ -37,6 +39,8 @@ public class MainMenuController implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(display.jButton_Client))
             ClientMenuController.getInstance().makeVisible(true);
+        if (e.getSource().equals(display.jButton_Part))
+            PartMenuController.getInstance().makeVisible(true);
         display.setVisible(false);
     }
     

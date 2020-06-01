@@ -8,22 +8,22 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-public class ClientMenuDisplay extends javax.swing.JFrame {
+public class PartMenuDisplay extends javax.swing.JFrame {
     
     public DefaultTableModel tableModel;
     public JPopupMenu popUpMenu;
 
-    public ClientMenuDisplay() {
+    public PartMenuDisplay() {
         initComponents();
-        this.tableModel = (DefaultTableModel) jTable_Clients.getModel();
+        this.tableModel = (DefaultTableModel) jTable_Parts.getModel();
         popUpMenu = new JPopupMenu();
         initTable();
     }
     
     public void filterSearch(){
-        String query = jTextField_SearchClients.getText();
+        String query = jTextField_SearchParts.getText();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
-        jTable_Clients.setRowSorter(sorter);
+        jTable_Parts.setRowSorter(sorter);
         sorter.setRowFilter(RowFilter.regexFilter("(?i)" + query));
     }
     
@@ -31,7 +31,7 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
         renderer.setHorizontalAlignment(JLabel.CENTER);
         for (int i = 0; i < 3; i++)
-            jTable_Clients.getColumnModel().getColumn(i).setCellRenderer(renderer);
+            jTable_Parts.getColumnModel().getColumn(i).setCellRenderer(renderer);
     }
     
     /**
@@ -46,11 +46,11 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         jPanel_BG = new javax.swing.JPanel();
         jPanel_Header = new javax.swing.JPanel();
         jLabel_Title = new javax.swing.JLabel();
-        jButton_NewClient = new javax.swing.JButton();
+        jButton_NewPart = new javax.swing.JButton();
         jButton_Back = new javax.swing.JButton();
-        jTextField_SearchClients = new javax.swing.JTextField();
+        jTextField_SearchParts = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable_Clients = new javax.swing.JTable();
+        jTable_Parts = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,30 +80,30 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jButton_NewClient.setBackground(new java.awt.Color(153, 0, 0));
-        jButton_NewClient.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
-        jButton_NewClient.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_NewClient.setText("AGREGAR CLIENTE");
+        jButton_NewPart.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_NewPart.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_NewPart.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_NewPart.setText("AGREGAR PARTE");
 
         jButton_Back.setBackground(new java.awt.Color(153, 0, 0));
         jButton_Back.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
         jButton_Back.setForeground(new java.awt.Color(255, 255, 255));
         jButton_Back.setText("REGRESAR");
 
-        jTextField_SearchClients.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jTextField_SearchClients.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextField_SearchParts.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        jTextField_SearchParts.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField_SearchClientsKeyReleased(evt);
+                jTextField_SearchPartsKeyReleased(evt);
             }
         });
 
-        jTable_Clients.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jTable_Clients.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_Parts.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        jTable_Parts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Cedula", "Estado"
+                "Nombre", "Fabricante", "Marca"
             }
         ) {
             Class[] types = new Class [] {
@@ -121,7 +121,7 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable_Clients);
+        jScrollPane2.setViewportView(jTable_Parts);
 
         javax.swing.GroupLayout jPanel_BGLayout = new javax.swing.GroupLayout(jPanel_BG);
         jPanel_BG.setLayout(jPanel_BGLayout);
@@ -135,9 +135,9 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
                     .addGroup(jPanel_BGLayout.createSequentialGroup()
                         .addComponent(jButton_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField_SearchClients, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_SearchParts, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_NewClient)))
+                        .addComponent(jButton_NewPart)))
                 .addContainerGap())
         );
         jPanel_BGLayout.setVerticalGroup(
@@ -146,9 +146,9 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
                 .addComponent(jPanel_Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_NewClient, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jButton_NewPart, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                     .addComponent(jButton_Back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField_SearchClients))
+                    .addComponent(jTextField_SearchParts))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                 .addContainerGap())
@@ -168,18 +168,18 @@ public class ClientMenuDisplay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField_SearchClientsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_SearchClientsKeyReleased
+    private void jTextField_SearchPartsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_SearchPartsKeyReleased
         filterSearch();
-    }//GEN-LAST:event_jTextField_SearchClientsKeyReleased
+    }//GEN-LAST:event_jTextField_SearchPartsKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Back;
-    public javax.swing.JButton jButton_NewClient;
+    public javax.swing.JButton jButton_NewPart;
     private javax.swing.JLabel jLabel_Title;
     private javax.swing.JPanel jPanel_BG;
     private javax.swing.JPanel jPanel_Header;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable jTable_Clients;
-    public javax.swing.JTextField jTextField_SearchClients;
+    public javax.swing.JTable jTable_Parts;
+    public javax.swing.JTextField jTextField_SearchParts;
     // End of variables declaration//GEN-END:variables
 }
