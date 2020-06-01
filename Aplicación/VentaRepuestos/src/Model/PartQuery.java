@@ -102,7 +102,7 @@ public class PartQuery {
                     add(gainPercent  + "/100.0 * " + providerPrice + " + " + providerPrice);
                 }
             };
-            int rowsAffected = ConnectionManager.update("PROVISION", columns, values, "ID_PARTE = " + partId + " AND ID_PROVEEDOR = " + providerId + ")");
+            int rowsAffected = ConnectionManager.update("PROVISION", columns, values, "ID_PARTE = " + partId + " AND ID_PROVEEDOR = " + providerId);
             if (rowsAffected == 0)
                 throw new SQLException("No rows affected");
         } catch (SQLException ex) {
