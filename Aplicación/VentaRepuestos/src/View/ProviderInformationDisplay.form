@@ -191,7 +191,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="11"/>
-            <Property name="text" type="java.lang.String" value="PORCENTAJE GANANCIA"/>
+            <Property name="text" type="java.lang.String" value="PORCENTAJE GANANCIA:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel_PriceProv">

@@ -83,7 +83,7 @@ public class ProviderMenuController implements ActionListener{
             display.setVisible(false);
         }
         if (e.getSource().equals(display.jButton_NewPartProvider)){
-            //handle new part provider
+            ProviderInformationController.getInstance().makeVisible(true);
         }
     }
 }

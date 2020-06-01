@@ -79,7 +79,7 @@ public class ProviderInformationDisplay extends javax.swing.JFrame {
         jLabel_Gain.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel_Gain.setForeground(new java.awt.Color(0, 0, 0));
         jLabel_Gain.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_Gain.setText("PORCENTAJE GANANCIA");
+        jLabel_Gain.setText("PORCENTAJE GANANCIA:");
 
         jLabel_PriceProv.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel_PriceProv.setForeground(new java.awt.Color(0, 0, 0));
