@@ -2,6 +2,7 @@
 package Controller;
 
 import Model.ConsultQuery;
+import Model.PartQuery;
 import View.ProviderInformationDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -75,7 +76,11 @@ public class ProviderInformationController implements ActionListener{
     }
     
     private void addNewPartProvider(){
-        //add
+        String partId = partList.get(display.jComboBox_Part.getSelectedIndex())[0];
+        String providerId = provList.get(display.jComboBox_Provider.getSelectedIndex())[0];
+        String providerPrice = display.jTextField_PriceProv.getText();
+        String gain = display.jTextField_Gain.getText();
+        PartQuery.asociatePartProvider(partId, providerId, providerPrice, gain);
     }
     
 }
