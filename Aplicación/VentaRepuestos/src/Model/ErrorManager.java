@@ -34,6 +34,9 @@ public class ErrorManager {
         else if (message.contains ("Conversion failed")) {
             infoBox ("La fecha introducida es inválida","Operación no realizada");
         }
+        else if (message.contains ("Client suspended")) {
+            infoBox ("El cliente indicado se encuentra suspendido","Operación no realizada");
+        }
         else
             infoBox (message,"Operación no realizada");
     }

@@ -26,7 +26,23 @@ public class OrderQuery {
                         add("(SELECT ID_CLIENTE FROM PERSONA WHERE CEDULA = '" + clientCed + "')");
                 }
             };
+            ResultSet rs = ConnectionManager.select("TIPO", "ESTADO", "ID = (SELECT ID_ESTADO FROM CLIENTE WHERE ID = " + values.get(1) + ")");
+            if (rs.next() == false){
+                throw new SQLException ("NULL into column 'ID_CLIENTE'");
+            } 
+            if (rs.getString("TIPO").equals ("SUSPENDIDO")){
+                throw new SQLException ("Client suspended");
+            }
             ConnectionManager.insert("ORDEN", columns, values);
+            columns.clear();
+            columns.add("ID_ESTADO");
+            values.set(0,"(SELECT ID FROM ESTADO WHERE TIPO = 'ACTIVO')");
+            String condition = "ID = ";
+            if (organization)
+                        condition += "(SELECT ID_CLIENTE FROM ORGANIZACION WHERE CEDULA_JUR = '" + clientCed + "')";
+                    else
+                        condition += "(SELECT ID_CLIENTE FROM PERSONA WHERE CEDULA = '" + clientCed + "')";
+            ConnectionManager.update("CLIENTE",columns,values,condition);
         } catch (SQLException ex) {
             ErrorManager.orderInsertError(ex, organization);
         }
