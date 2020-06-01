@@ -3,31 +3,17 @@ package View;
 
 import javax.swing.DefaultComboBoxModel;
 
-public class ClientInformationDisplay extends javax.swing.JFrame {
+public class ProviderInformationDisplay extends javax.swing.JFrame {
     
-    public DefaultComboBoxModel comboBoxModel;
+    public DefaultComboBoxModel comboBoxModelPart;
+    public DefaultComboBoxModel comboBoxModelProv;
 
-    public ClientInformationDisplay() {
+    public ProviderInformationDisplay() {
         initComponents();
-        updateTextFields();
-        this.comboBoxModel = (DefaultComboBoxModel) jComboBox_Status.getModel();
+        this.comboBoxModelPart = (DefaultComboBoxModel) jComboBox_Part.getModel();
+        this.comboBoxModelProv = (DefaultComboBoxModel) jComboBox_Provider.getModel();
     }
-    
-    public void updateTextFields(){
-        if (jCheckBox_Org.isSelected()){
-            jLabel_ContactName.setEnabled(true);
-            jLabel_ContactCharge.setEnabled(true);
-            jTextField_ContactName.setEnabled(true);
-            jTextField_ContactCharge.setEnabled(true);
-        }
-        else{
-            jLabel_ContactName.setEnabled(false);
-            jLabel_ContactCharge.setEnabled(false);
-            jTextField_ContactName.setEnabled(false);
-            jTextField_ContactCharge.setEnabled(false);
-        }
-    }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,26 +26,17 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
         jPanel_BG = new javax.swing.JPanel();
         jPanel_Header = new javax.swing.JPanel();
         jLabel_Title = new javax.swing.JLabel();
-        jLabel_Name = new javax.swing.JLabel();
-        jLabel_Id = new javax.swing.JLabel();
-        jCheckBox_Org = new javax.swing.JCheckBox();
-        jLabel_Addres = new javax.swing.JLabel();
-        jLabel_City = new javax.swing.JLabel();
-        jLabel_Phone1 = new javax.swing.JLabel();
-        jLabel_Phone2 = new javax.swing.JLabel();
-        jLabel_Status = new javax.swing.JLabel();
-        jLabel_ContactName = new javax.swing.JLabel();
-        jLabel_ContactCharge = new javax.swing.JLabel();
-        jComboBox_Status = new javax.swing.JComboBox<>();
+        jLabel_Part = new javax.swing.JLabel();
+        jLabel_Provider = new javax.swing.JLabel();
+        jLabel_Gain = new javax.swing.JLabel();
+        jLabel_PriceProv = new javax.swing.JLabel();
+        jLabel_PricePub = new javax.swing.JLabel();
         jButton_Accept = new javax.swing.JButton();
-        jTextField_Id = new javax.swing.JTextField();
-        jTextField_City = new javax.swing.JTextField();
-        jTextField_Name = new javax.swing.JTextField();
-        jTextField_Addres = new javax.swing.JTextField();
-        jTextField_ContactName = new javax.swing.JTextField();
-        jTextField_ContactCharge = new javax.swing.JTextField();
-        jTextField_Phone2 = new javax.swing.JTextField();
-        jTextField_Phone1 = new javax.swing.JTextField();
+        jTextField_PriceProv = new javax.swing.JTextField();
+        jTextField_Gain = new javax.swing.JTextField();
+        jTextField_PricePub = new javax.swing.JTextField();
+        jComboBox_Provider = new javax.swing.JComboBox<>();
+        jComboBox_Part = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,16 +47,16 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
         jLabel_Title.setFont(new java.awt.Font("Gill Sans MT", 1, 24)); // NOI18N
         jLabel_Title.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_Title.setText("INFORMACION DE CLIENTE");
+        jLabel_Title.setText("RELACION PARTE PROVEEDOR");
 
         javax.swing.GroupLayout jPanel_HeaderLayout = new javax.swing.GroupLayout(jPanel_Header);
         jPanel_Header.setLayout(jPanel_HeaderLayout);
         jPanel_HeaderLayout.setHorizontalGroup(
             jPanel_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_HeaderLayout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel_Title)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_HeaderLayout.setVerticalGroup(
             jPanel_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,84 +66,47 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        jLabel_Name.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_Name.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_Name.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_Name.setText("NOMBRE:");
+        jLabel_Part.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel_Part.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_Part.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_Part.setText("PARTE:");
 
-        jLabel_Id.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_Id.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_Id.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_Id.setText("CEDULA:");
+        jLabel_Provider.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel_Provider.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_Provider.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_Provider.setText("PROVEEDOR:");
 
-        jCheckBox_Org.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox_Org.setFont(new java.awt.Font("Gill Sans MT", 1, 10)); // NOI18N
-        jCheckBox_Org.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox_Org.setText("ORGANIZACION");
-        jCheckBox_Org.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBox_OrgMouseClicked(evt);
-            }
-        });
+        jLabel_Gain.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel_Gain.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_Gain.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_Gain.setText("PORCENTAJE GANANCIA");
 
-        jLabel_Addres.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_Addres.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_Addres.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_Addres.setText("DIRECCION:");
+        jLabel_PriceProv.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel_PriceProv.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_PriceProv.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_PriceProv.setText("PRECIO PROVEEDOR:");
 
-        jLabel_City.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_City.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_City.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_City.setText("CIUDAD:");
-
-        jLabel_Phone1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_Phone1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_Phone1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_Phone1.setText("TELEFONO:");
-
-        jLabel_Phone2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_Phone2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_Phone2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_Phone2.setText("TELEFONO:");
-
-        jLabel_Status.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_Status.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_Status.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_Status.setText("ESTADO:");
-
-        jLabel_ContactName.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_ContactName.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_ContactName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_ContactName.setText("CONTACTO:");
-
-        jLabel_ContactCharge.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_ContactCharge.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_ContactCharge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_ContactCharge.setText("CARGO:");
-
-        jComboBox_Status.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
-        jComboBox_Status.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_PricePub.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel_PricePub.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_PricePub.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_PricePub.setText("PRECIO PUBLICO:");
 
         jButton_Accept.setBackground(new java.awt.Color(153, 0, 0));
         jButton_Accept.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
         jButton_Accept.setForeground(new java.awt.Color(255, 255, 255));
         jButton_Accept.setText("ACEPTAR");
 
-        jTextField_Id.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jTextField_PriceProv.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
 
-        jTextField_City.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jTextField_Gain.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
 
-        jTextField_Name.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jTextField_PricePub.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
 
-        jTextField_Addres.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jComboBox_Provider.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jComboBox_Provider.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTextField_ContactName.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-
-        jTextField_ContactCharge.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-
-        jTextField_Phone2.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-
-        jTextField_Phone1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jComboBox_Part.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jComboBox_Part.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel_BGLayout = new javax.swing.GroupLayout(jPanel_BG);
         jPanel_BG.setLayout(jPanel_BGLayout);
@@ -174,41 +114,27 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
             jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel_Header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_BGLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel_Provider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel_Part, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel_Addres, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel_Id, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel_City, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                        .addComponent(jLabel_ContactName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel_ContactCharge, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Provider, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox_Part, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 53, Short.MAX_VALUE))
+            .addGroup(jPanel_BGLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel_PriceProv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel_Gain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel_PricePub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField_Addres)
-                    .addComponent(jTextField_City)
-                    .addComponent(jTextField_ContactName)
-                    .addComponent(jTextField_ContactCharge)
-                    .addGroup(jPanel_BGLayout.createSequentialGroup()
-                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_BGLayout.createSequentialGroup()
-                                .addComponent(jTextField_Id)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_BGLayout.createSequentialGroup()
-                                .addComponent(jTextField_Name)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel_Phone1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_BGLayout.createSequentialGroup()
-                                .addComponent(jCheckBox_Org)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel_Phone2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox_Status, 0, 120, Short.MAX_VALUE)
-                            .addComponent(jTextField_Phone1)
-                            .addComponent(jTextField_Phone2))))
-                .addGap(30, 30, 30))
+                    .addComponent(jTextField_PricePub, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Gain, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_PriceProv, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_BGLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton_Accept, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,40 +146,27 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
                 .addComponent(jPanel_Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Name)
-                    .addComponent(jLabel_Phone1)
-                    .addComponent(jTextField_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_Phone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_Part)
+                    .addComponent(jComboBox_Part, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox_Org)
-                    .addComponent(jLabel_Phone2)
-                    .addComponent(jTextField_Phone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_Provider)
+                    .addComponent(jComboBox_Provider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_PriceProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_PriceProv))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Id)
-                    .addComponent(jLabel_Status)
-                    .addComponent(jComboBox_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_City)
-                    .addComponent(jTextField_City, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_Gain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Gain))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Addres)
-                    .addComponent(jTextField_Addres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_ContactName)
-                    .addComponent(jTextField_ContactName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_ContactCharge)
-                    .addComponent(jTextField_ContactCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTextField_PricePub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_PricePub))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jButton_Accept, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -270,34 +183,21 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox_OrgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox_OrgMouseClicked
-        updateTextFields();
-    }//GEN-LAST:event_jCheckBox_OrgMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Accept;
-    public javax.swing.JCheckBox jCheckBox_Org;
-    public javax.swing.JComboBox<String> jComboBox_Status;
-    private javax.swing.JLabel jLabel_Addres;
-    private javax.swing.JLabel jLabel_City;
-    private javax.swing.JLabel jLabel_ContactCharge;
-    private javax.swing.JLabel jLabel_ContactName;
-    private javax.swing.JLabel jLabel_Id;
-    private javax.swing.JLabel jLabel_Name;
-    private javax.swing.JLabel jLabel_Phone1;
-    private javax.swing.JLabel jLabel_Phone2;
-    private javax.swing.JLabel jLabel_Status;
+    public javax.swing.JComboBox<String> jComboBox_Part;
+    public javax.swing.JComboBox<String> jComboBox_Provider;
+    private javax.swing.JLabel jLabel_Gain;
+    private javax.swing.JLabel jLabel_Part;
+    private javax.swing.JLabel jLabel_PriceProv;
+    private javax.swing.JLabel jLabel_PricePub;
+    private javax.swing.JLabel jLabel_Provider;
     private javax.swing.JLabel jLabel_Title;
     private javax.swing.JPanel jPanel_BG;
     private javax.swing.JPanel jPanel_Header;
-    public javax.swing.JTextField jTextField_Addres;
-    public javax.swing.JTextField jTextField_City;
-    public javax.swing.JTextField jTextField_ContactCharge;
-    public javax.swing.JTextField jTextField_ContactName;
-    public javax.swing.JTextField jTextField_Id;
-    public javax.swing.JTextField jTextField_Name;
-    public javax.swing.JTextField jTextField_Phone1;
-    public javax.swing.JTextField jTextField_Phone2;
+    public javax.swing.JTextField jTextField_Gain;
+    public javax.swing.JTextField jTextField_PriceProv;
+    public javax.swing.JTextField jTextField_PricePub;
     // End of variables declaration//GEN-END:variables
 }
