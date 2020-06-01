@@ -44,7 +44,9 @@ public class ProviderMenuController implements ActionListener{
             public void actionPerformed(ActionEvent arg0) {
                 int index = display.jTable_Provider.getSelectedRow();
                 if (index != -1){
-                    //handle moficiation
+                    String[] partProv = partProvList.get(index);
+                    ProviderInformationController.getInstance().makeVisible(true, false);
+                    ProviderInformationController.getInstance().setInfo(partProv);
                 }
             }
         });
@@ -83,7 +85,7 @@ public class ProviderMenuController implements ActionListener{
             display.setVisible(false);
         }
         if (e.getSource().equals(display.jButton_NewPartProvider)){
-            ProviderInformationController.getInstance().makeVisible(true);
+            ProviderInformationController.getInstance().makeVisible(true, true);
         }
     }
 }
