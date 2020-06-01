@@ -75,7 +75,7 @@ public class ConsultQuery {
        for (int i = 3; i < 9; i++)
            client[i] = "";
        String clientCed = clientInfo[2];
-       boolean organization = ("TRUE".equals(clientInfo[3]));
+       boolean organization = ("TRUE".equals(clientInfo[4]));
        try{
            ArrayList<String> columns = new ArrayList<>(){
                {
