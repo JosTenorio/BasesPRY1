@@ -155,6 +155,32 @@ public class ConsultQuery {
        return partList;
    }
    
+   public static ArrayList<String> listFabParts(){
+       ArrayList<String> fabPartsList = new ArrayList<>();
+       try {
+           ResultSet rs = ConnectionManager.select("NOMBRE", "FAB_PARTES");
+           while(rs.next()){
+               fabPartsList.add(rs.getString("NOMBRE"));
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return fabPartsList;
+   }
+   
+   public static ArrayList<String> listBrands(){
+       ArrayList<String> brandsList = new ArrayList<>();
+       try {
+           ResultSet rs = ConnectionManager.select("NOMBRE", "MARCA");
+           while(rs.next()){
+               brandsList.add(rs.getString("NOMBRE"));
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return brandsList;
+   }
+   
    public static ArrayList<ArrayList<String>> listPartsForCar(){
        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
        return result;

@@ -99,6 +99,7 @@ public class ClientInformationDisplay extends javax.swing.JFrame {
         jLabel_Id.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel_Id.setText("CEDULA:");
 
+        jCheckBox_Org.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox_Org.setFont(new java.awt.Font("Gill Sans MT", 1, 10)); // NOI18N
         jCheckBox_Org.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBox_Org.setText("ORGANIZACION");

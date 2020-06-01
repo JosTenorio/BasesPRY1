@@ -83,7 +83,7 @@ public class PartMenuController implements ActionListener{
             display.setVisible(false);
         }
         if (e.getSource().equals(display.jButton_NewPart)){
-            //hanlde addition of parts
+            PartInformationController.getInstance().makeVisible(true);
         }
     }
 }
