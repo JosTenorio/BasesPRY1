@@ -33,7 +33,7 @@ public class PartInformationController implements ActionListener{
     
     public void makeVisible(boolean visible){
         display.setVisible(visible);
-        clearClientInfo();
+        clearInfo();
         if (visible == true)
             updateComboBoxData();
     }      
@@ -51,7 +51,7 @@ public class PartInformationController implements ActionListener{
         display.jComboBox_Brand.setModel(display.comboBoxModelBrand);
     }
     
-    public void clearClientInfo(){
+    public void clearInfo(){
         display.jTextField_Name.setText("");
     }
     

@@ -46,7 +46,7 @@ public class ClientMenuController implements ActionListener{
                 if (index != -1){
                     String[] client = ConsultQuery.listClient(clientList.get(index));
                     ClientInformationController.getInstance().makeVisible(true, false);
-                    ClientInformationController.getInstance().setClientInfo(client);
+                    ClientInformationController.getInstance().setInfo(client);
                 }
             }
         });

@@ -218,4 +218,50 @@ public class ConsultQuery {
        }
        return partProvList;
    }
+   
+   public static ArrayList<String[]> listPartsNameId(){
+       ArrayList<String[]> partsList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsPart = new ArrayList<>(){
+               {
+                   add("ID");
+                   add("NOMBRE");
+               }
+           };
+           ResultSet rs = ConnectionManager.select(columnsPart, "PARTE");
+           while(rs.next()){
+               String[] part = new String[2];
+               for (int i = 1; i <= columnsPart.size(); i++)
+                   part[i-1] = String.valueOf(rs.getObject(i));
+               partsList.add(part);
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return partsList;
+   }
+   
+   public static ArrayList<String[]> listProvidersNameId(){
+       ArrayList<String[]> provsList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsProv = new ArrayList<>(){
+               {
+                   add("ID");
+                   add("NOMBRE");
+               }
+           };
+           ResultSet rs = ConnectionManager.select(columnsProv, "PROVEEDOR");
+           while(rs.next()){
+               String[] prov = new String[2];
+               for (int i = 1; i <= columnsProv.size(); i++)
+                   prov[i-1] = String.valueOf(rs.getObject(i));
+               provsList.add(prov);
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return provsList;
+   }
 }
+
+

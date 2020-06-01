@@ -35,7 +35,7 @@ public class ClientInformationController implements ActionListener{
     public void makeVisible(boolean visible, boolean newClient){
         display.setVisible(visible);
         this.newClient = newClient;
-        clearClientInfo();
+        clearInfo();
         if (visible == true)
             updateComboBoxData();
     }      
@@ -48,7 +48,7 @@ public class ClientInformationController implements ActionListener{
         display.jComboBox_Status.setModel(display.comboBoxModel);
     }
     
-    public void setClientInfo(String[] client){
+    public void setInfo(String[] client){
         display.jTextField_Name.setText(client[0]);
         display.jTextField_Id.setText(client[1]);
         display.jTextField_Addres.setText(client[3]);
@@ -65,7 +65,7 @@ public class ClientInformationController implements ActionListener{
         display.jTextField_Id.setEditable(false);
     }
     
-    public void clearClientInfo(){
+    public void clearInfo(){
         display.jTextField_Name.setText("");
         display.jTextField_Id.setText("");
         display.jTextField_Addres.setText("");
