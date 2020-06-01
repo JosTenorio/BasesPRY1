@@ -12,7 +12,7 @@ public class Main {
             controller.makeVisible(true);
 
             //EJEMPLO ASOCIAR PARTE-PROVEEDOR
-//            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
+//            PartQuery.asociatePartProvider("1", "1", "100", "20");
 
             //EJEMPLO ASOCIAR PARTE-CARRO
 //            PartQuery.asociatePartCar("1", "Yaris", "2008");

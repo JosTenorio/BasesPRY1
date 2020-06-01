@@ -40,7 +40,7 @@ public class PartQuery {
         }
     }
     
-    public static void asociatePartProvider(String partId, String provider, String providerPrice, String gainPercent){
+    public static void asociatePartProvider(String partId, String providerId, String providerPrice, String gainPercent){
         try {
             ArrayList<String> columns = new ArrayList<String>() {
                 {
@@ -54,7 +54,7 @@ public class PartQuery {
             ArrayList<String> values = new ArrayList<String>() {
                 {
                     add(partId);
-                    add("(SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "')");
+                    add(providerId);
                     add(providerPrice);
                     add(gainPercent);
                     add(gainPercent  + "/100.0 * " + providerPrice + " + " + providerPrice);
@@ -86,7 +86,7 @@ public class PartQuery {
         }
     }
     
-    public static void modifyPartProvider(String partId, String provider, String providerPrice, String gainPercent){
+    public static void modifyPartProvider(String partId, String providerId, String providerPrice, String gainPercent){
         try {
             ArrayList<String> columns = new ArrayList<String>() {
                 {
@@ -102,7 +102,7 @@ public class PartQuery {
                     add(gainPercent  + "/100.0 * " + providerPrice + " + " + providerPrice);
                 }
             };
-            int rowsAffected = ConnectionManager.update("PROVISION", columns, values, "ID_PARTE = " + partId + " AND ID_PROVEEDOR = (SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "')");
+            int rowsAffected = ConnectionManager.update("PROVISION", columns, values, "ID_PARTE = " + partId + " AND ID_PROVEEDOR = " + providerId + ")");
             if (rowsAffected == 0)
                 throw new SQLException("No rows affected");
         } catch (SQLException ex) {
