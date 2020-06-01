@@ -2,6 +2,7 @@
 package Controller;
 
 import Model.ConsultQuery;
+import Model.PartQuery;
 import View.PartMenuDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,7 +45,8 @@ public class PartMenuController implements ActionListener{
             public void actionPerformed(ActionEvent arg0) {
                 int index = display.jTable_Parts.getSelectedRow();
                 if (index != -1){
-                    //handle deletion
+                    PartQuery.deletePart(partList.get(index)[0]);
+                    updateTableData();
                 }
             }
         });
