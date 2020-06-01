@@ -11,17 +11,11 @@ public class Main {
             MainMenuController controller = MainMenuController.getInstance();
             controller.makeVisible(true);
 
-            //EJEMPLO INSERTAR PARTE
-//            PartQuery.insertPart("Llanta A02", "Walker", "Auto Spare Parts");
-
             //EJEMPLO ASOCIAR PARTE-PROVEEDOR
 //            PartQuery.asociatePartProvider("1", "Super Repuestos", "100", "20");
 
             //EJEMPLO ASOCIAR PARTE-CARRO
 //            PartQuery.asociatePartCar("1", "Yaris", "2008");
-
-            //EJEMPLO BORRAR PARTE
-//            PartQuery.deletePart("1");
 
             //EJEMPLO MODIFICAR PRECIOS DE PROVISION
 //           PartQuery.modifyPartProvider("1", "Super Repuestos", "100", "20");

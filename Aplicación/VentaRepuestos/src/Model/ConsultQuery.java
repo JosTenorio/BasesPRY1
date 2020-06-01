@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class ConsultQuery {  
     
-   public static ArrayList<String[]> listClients(){
+   public static ArrayList<String[]> listClientsEssentials(){
        ArrayList<String[]> clientList = new ArrayList<>();
        try {
            ArrayList<String> columnsPerson = new ArrayList<>(){
@@ -53,7 +53,7 @@ public class ConsultQuery {
        return clientList;
    }
    
-   public static ArrayList<String> listStatus(){
+   public static ArrayList<String> listStatusTypes(){
        ArrayList<String> statusList = new ArrayList<>();
        try {
            ResultSet rs = ConnectionManager.select("TIPO", "ESTADO");
@@ -66,7 +66,7 @@ public class ConsultQuery {
        return statusList;
    }
    
-   public static String[] getClient(String[] clientInfo){
+   public static String[] listClient(String[] clientInfo){
        String[] client = new String[10];
        client[0] = clientInfo[1];
        client[1] = clientInfo[2];
@@ -155,7 +155,7 @@ public class ConsultQuery {
        return partList;
    }
    
-   public static ArrayList<String> listFabParts(){
+   public static ArrayList<String> listFabPartsNames(){
        ArrayList<String> fabPartsList = new ArrayList<>();
        try {
            ResultSet rs = ConnectionManager.select("NOMBRE", "FAB_PARTES");
@@ -168,7 +168,7 @@ public class ConsultQuery {
        return fabPartsList;
    }
    
-   public static ArrayList<String> listBrands(){
+   public static ArrayList<String> listBrandsNames(){
        ArrayList<String> brandsList = new ArrayList<>();
        try {
            ResultSet rs = ConnectionManager.select("NOMBRE", "MARCA");
@@ -179,15 +179,5 @@ public class ConsultQuery {
            Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
        }
        return brandsList;
-   }
-   
-   public static ArrayList<ArrayList<String>> listPartsForCar(){
-       ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
-       return result;
-   }
-   
-   public static ArrayList<ArrayList<String>> listProvidersForPart(){
-       ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
-       return result;
    }
 }

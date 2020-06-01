@@ -41,10 +41,10 @@ public class PartInformationController implements ActionListener{
     public void updateComboBoxData(){
         display.comboBoxModelFab.removeAllElements();
         display.comboBoxModelBrand.removeAllElements();
-        ArrayList<String> fabPartsList = ConsultQuery.listFabParts();
+        ArrayList<String> fabPartsList = ConsultQuery.listFabPartsNames();
         for (String fabParts : fabPartsList)
             display.comboBoxModelFab.addElement(fabParts);
-        ArrayList<String> brandsList = ConsultQuery.listBrands();
+        ArrayList<String> brandsList = ConsultQuery.listBrandsNames();
         for (String brand : brandsList)
             display.comboBoxModelBrand.addElement(brand);
         display.jComboBox_Fab.setModel(display.comboBoxModelFab);
