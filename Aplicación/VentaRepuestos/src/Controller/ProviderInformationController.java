@@ -46,10 +46,10 @@ public class ProviderInformationController implements ActionListener{
     public void updateComboBoxData(){
         display.comboBoxModelPart.removeAllElements();
         display.comboBoxModelProv.removeAllElements();
-        partList = ConsultQuery.listPartsNameId();
+        partList = ConsultQuery.listPartsDropdown();
         for (String[] part : partList)
             display.comboBoxModelPart.addElement(part[1]);
-        provList = ConsultQuery.listProvidersNameId();
+        provList = ConsultQuery.listProvidersDropdown();
         for (String[] prov : provList)
             display.comboBoxModelProv.addElement(prov[1]);
         display.jComboBox_Part.setModel(display.comboBoxModelPart);

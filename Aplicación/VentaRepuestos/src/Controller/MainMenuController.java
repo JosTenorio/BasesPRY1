@@ -43,6 +43,8 @@ public class MainMenuController implements ActionListener{
             PartMenuController.getInstance().makeVisible(true);
         if (e.getSource().equals(display.jButton_Provider))
             ProviderMenuController.getInstance().makeVisible(true);
+        if (e.getSource().equals(display.jButton_Auto))
+            AutoMenuController.getInstance().makeVisible(true);
         display.setVisible(false);
     }
     

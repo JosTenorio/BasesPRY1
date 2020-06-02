@@ -2,8 +2,7 @@
 package Controller;
 
 import Model.ConsultQuery;
-import Model.PartQuery;
-import View.PartMenuDisplay;
+import View.AutoMenuDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -13,24 +12,24 @@ import java.util.Arrays;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 
-public class PartMenuController implements ActionListener{
+public class AutoMenuController implements ActionListener{
     
-    private static final PartMenuDisplay display = new PartMenuDisplay();
-    private static PartMenuController firstInstance = null;
-    private ArrayList<String[]> partList;
+    private static final AutoMenuDisplay display = new AutoMenuDisplay();
+    private static AutoMenuController firstInstance = null;
+    private ArrayList<String[]> partAutoList;
     
-    private PartMenuController(){
+    private AutoMenuController(){
         init();
     }
     
-    public static PartMenuController getInstance(){
+    public static AutoMenuController getInstance(){
         if (firstInstance == null)
-            firstInstance = new PartMenuController();
+            firstInstance = new AutoMenuController();
         return firstInstance;
     }
     
     private void init(){
-        display.jButton_NewPart.addActionListener(this);
+        display.jButton_NewPartAuto.addActionListener(this);
         display.jButton_Back.addActionListener(this);
         initPopUpMenu();
         initTable();
@@ -39,22 +38,12 @@ public class PartMenuController implements ActionListener{
     }
     
     private void initPopUpMenu(){
-        JMenuItem delete = new JMenuItem("Eliminar");
-        delete.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                int index = display.jTable_Parts.getSelectedRow();
-                if (index != -1){
-                    PartQuery.deletePart(partList.get(index)[0]);
-                    updateTableData();
-                }
-            }
-        });
-        display.popUpMenu.add(delete);
+        JMenuItem empty = new JMenuItem("");
+        display.popUpMenu.add(empty);
     }
     
     private void initTable(){
-        display.jTable_Parts.addMouseListener(new MouseAdapter(){
+        display.jTable_Auto.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
                 if (SwingUtilities.isRightMouseButton(e))
@@ -71,10 +60,10 @@ public class PartMenuController implements ActionListener{
     
     public void updateTableData(){
         display.tableModel.setRowCount(0);
-        partList = ConsultQuery.listPartsTable();
-        for (String[] part : partList)
-            display.tableModel.addRow(Arrays.copyOfRange(part, 1, 4));
-        display.jTable_Parts.setModel(display.tableModel);
+        partAutoList = ConsultQuery.listPartAutosTable();
+        for (String[] partAuto : partAutoList)
+            display.tableModel.addRow(Arrays.copyOfRange(partAuto, 2, 5));
+        display.jTable_Auto.setModel(display.tableModel);
     }
             
 
@@ -84,8 +73,8 @@ public class PartMenuController implements ActionListener{
             MainMenuController.getInstance().makeVisible(true);
             display.setVisible(false);
         }
-        if (e.getSource().equals(display.jButton_NewPart)){
-            PartInformationController.getInstance().makeVisible(true);
+        if (e.getSource().equals(display.jButton_NewPartAuto)){
+            AutoInformationController.getInstance().makeVisible(true);
         }
     }
 }

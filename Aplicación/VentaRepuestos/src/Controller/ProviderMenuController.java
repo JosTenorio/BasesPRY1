@@ -71,7 +71,7 @@ public class ProviderMenuController implements ActionListener{
     
     public void updateTableData(){
         display.tableModel.setRowCount(0);
-        partProvList = ConsultQuery.listPartProviders();
+        partProvList = ConsultQuery.listPartProvidersTable();
         for (String[] partProv : partProvList)
             display.tableModel.addRow(Arrays.copyOfRange(partProv, 2, 7));
         display.jTable_Provider.setModel(display.tableModel);

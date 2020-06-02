@@ -44,7 +44,7 @@ public class ClientMenuController implements ActionListener{
             public void actionPerformed(ActionEvent arg0) {
                 int index = display.jTable_Clients.getSelectedRow();
                 if (index != -1){
-                    String[] client = ConsultQuery.listClient(clientList.get(index));
+                    String[] client = ConsultQuery.listClientForm(clientList.get(index));
                     ClientInformationController.getInstance().makeVisible(true, false);
                     ClientInformationController.getInstance().setInfo(client);
                 }
@@ -71,7 +71,7 @@ public class ClientMenuController implements ActionListener{
     
     public void updateTableData(){
         display.tableModel.setRowCount(0);
-        clientList = ConsultQuery.listClientsEssentials();
+        clientList = ConsultQuery.listClientsTable();
         for (String[] client : clientList)
             display.tableModel.addRow(Arrays.copyOfRange(client, 1, 4));
         display.jTable_Clients.setModel(display.tableModel);

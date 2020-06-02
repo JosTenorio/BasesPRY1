@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class ConsultQuery {  
     
-   public static ArrayList<String[]> listClientsEssentials(){
+   public static ArrayList<String[]> listClientsTable(){
        ArrayList<String[]> clientList = new ArrayList<>();
        try {
            ArrayList<String> columnsPerson = new ArrayList<>(){
@@ -53,7 +53,7 @@ public class ConsultQuery {
        return clientList;
    }
    
-   public static ArrayList<String> listStatusTypes(){
+   public static ArrayList<String> listStatusDropdown(){
        ArrayList<String> statusList = new ArrayList<>();
        try {
            ResultSet rs = ConnectionManager.select("TIPO", "ESTADO");
@@ -66,7 +66,7 @@ public class ConsultQuery {
        return statusList;
    }
    
-   public static String[] listClient(String[] clientInfo){
+   public static String[] listClientForm(String[] clientInfo){
        String[] client = new String[10];
        client[0] = clientInfo[1];
        client[1] = clientInfo[2];
@@ -121,7 +121,7 @@ public class ConsultQuery {
        return client;
    }
    
-   public static ArrayList<String[]> listParts(){
+   public static ArrayList<String[]> listPartsTable(){
        ArrayList<String[]> partList = new ArrayList<>();
        try {
            ArrayList<String> columnsPart = new ArrayList<>(){
@@ -155,7 +155,7 @@ public class ConsultQuery {
        return partList;
    }
    
-   public static ArrayList<String> listFabPartsNames(){
+   public static ArrayList<String> listFabPartsDropdown(){
        ArrayList<String> fabPartsList = new ArrayList<>();
        try {
            ResultSet rs = ConnectionManager.select("NOMBRE", "FAB_PARTES");
@@ -168,7 +168,7 @@ public class ConsultQuery {
        return fabPartsList;
    }
    
-   public static ArrayList<String> listBrandsNames(){
+   public static ArrayList<String> listBrandsDropdown(){
        ArrayList<String> brandsList = new ArrayList<>();
        try {
            ResultSet rs = ConnectionManager.select("NOMBRE", "MARCA");
@@ -181,7 +181,7 @@ public class ConsultQuery {
        return brandsList;
    }
    
-   public static ArrayList<String[]> listPartProviders(){
+   public static ArrayList<String[]> listPartProvidersTable(){
        ArrayList<String[]> partProvList = new ArrayList<>();
        try {
            ArrayList<String> columnsPartProv = new ArrayList<>(){
@@ -219,7 +219,7 @@ public class ConsultQuery {
        return partProvList;
    }
    
-   public static ArrayList<String[]> listPartsNameId(){
+   public static ArrayList<String[]> listPartsDropdown(){
        ArrayList<String[]> partsList = new ArrayList<>();
        try {
            ArrayList<String> columnsPart = new ArrayList<>(){
@@ -241,7 +241,7 @@ public class ConsultQuery {
        return partsList;
    }
    
-   public static ArrayList<String[]> listProvidersNameId(){
+   public static ArrayList<String[]> listProvidersDropdown(){
        ArrayList<String[]> provsList = new ArrayList<>();
        try {
            ArrayList<String> columnsProv = new ArrayList<>(){
@@ -261,6 +261,63 @@ public class ConsultQuery {
            Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
        }
        return provsList;
+   }
+   
+   public static ArrayList<String[]> listPartAutosTable(){
+       ArrayList<String[]> partAutoList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsPartAuto = new ArrayList<>(){
+               {
+                   add("ID_PARTE");
+                   add("ID_AUTOMOVIL");
+               }
+           };
+           ResultSet rsPart = ConnectionManager.select(columnsPartAuto, "CORRESPONDENCIA");
+           while(rsPart.next()){
+               String[] partProv = new String[5];
+               for (int i = 1; i <= columnsPartAuto.size(); i++)
+                   partProv[i-1] = String.valueOf(rsPart.getObject(i));
+               partAutoList.add(partProv);
+           }
+           for (String[] partAuto : partAutoList){
+               ResultSet rs = ConnectionManager.select("NOMBRE", "PARTE", "ID = " + partAuto[0]);
+               rs.next();
+               partAuto[2] = rs.getString("NOMBRE");
+               rs.close();
+               ArrayList<String> columnsAuto = new ArrayList<>(){{add("MODELO");add("ANO");}};
+               rs = ConnectionManager.select(columnsAuto, "AUTOMOVIL", "ID = " + partAuto[1]);
+               rs.next();
+               partAuto[3] = rs.getString("MODELO");
+               partAuto[4] = rs.getString("ANO");
+               rs.close();
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return partAutoList;
+   }
+   
+   public static ArrayList<String[]> listAutosDropdown(){
+       ArrayList<String[]> autosList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsAutos = new ArrayList<>(){
+               {
+                   add("ID");
+                   add("MODELO");
+                   add("ANO");
+               }
+           };
+           ResultSet rs = ConnectionManager.select(columnsAutos, "AUTOMOVIL");
+           while(rs.next()){
+               String[] auto = new String[3];
+               for (int i = 1; i <= columnsAutos.size(); i++)
+                   auto[i-1] = String.valueOf(rs.getObject(i));
+               autosList.add(auto);
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return autosList;
    }
 }
 

@@ -42,7 +42,7 @@ public class ClientInformationController implements ActionListener{
 
     public void updateComboBoxData(){
         display.comboBoxModel.removeAllElements();
-        ArrayList<String> statusList = ConsultQuery.listStatusTypes();
+        ArrayList<String> statusList = ConsultQuery.listStatusDropdown();
         for (String status : statusList)
             display.comboBoxModel.addElement(status);
         display.jComboBox_Status.setModel(display.comboBoxModel);

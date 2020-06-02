@@ -3,8 +3,6 @@ package Model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PartQuery {
     
@@ -66,7 +64,7 @@ public class PartQuery {
         }
     }
     
-    public static void asociatePartCar(String partId, String model, String year){
+    public static void asociatePartCar(String partId, String autoId){
         try {
             ArrayList<String> columns = new ArrayList<String>() {
                 {
@@ -77,7 +75,7 @@ public class PartQuery {
             ArrayList<String> values = new ArrayList<String>() {
                 {
                     add(partId);
-                    add("(SELECT ID FROM AUTOMOVIL WHERE MODELO = '" + model + "' AND ANO = " + year + ")");
+                    add(autoId);
                 }
             };
             ConnectionManager.insert("CORRESPONDENCIA", columns, values);

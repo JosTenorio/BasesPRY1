@@ -10,9 +10,6 @@ public class Main {
             ConnectionManager.logIn("192.168.100.45", "sa", "12345");
             MainMenuController controller = MainMenuController.getInstance();
             controller.makeVisible(true);
-
-            //EJEMPLO ASOCIAR PARTE-CARRO
-//            PartQuery.asociatePartCar("1", "Yaris", "2008");
             
             //EJEMPLO INSERTAR ORDEN
 //            OrderQuery.insertOrder("01", "06", "2020", "117310466", false);
