@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class OrderQuery {
     
-    public static void insertOrder(String day, String month, String year, String clientCed, boolean organization){
+    public static void insertOrder(String clientCed, String day, String month, String year, boolean organization){
         try {
             ArrayList<String> columns = new ArrayList<String>() {
                 {

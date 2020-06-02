@@ -2,6 +2,7 @@
 package Controller;
 
 import Model.ConsultQuery;
+import Model.OrderQuery;
 import View.OrderInformationDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,6 +63,11 @@ public class OrderInformationController implements ActionListener{
     }
     
     private void addNewOrder(){
-        //handle new
+        String clientCed = clientList.get(display.jComboBox_Client.getSelectedIndex())[1];
+        boolean organization = ("TRUE".equals(clientList.get(display.jComboBox_Client.getSelectedIndex())[2]));
+        String day = display.jTextField_Day.getText();
+        String month = display.jTextField_Month.getText();
+        String year = display.jTextField_Year.getText();
+        OrderQuery.insertOrder(clientCed, day, month, year, organization);
     }
 }
