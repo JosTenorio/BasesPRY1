@@ -24,23 +24,18 @@ public class OrderQuery {
                         add("(SELECT ID_CLIENTE FROM PERSONA WHERE CEDULA = '" + clientCed + "')");
                 }
             };
-            ResultSet rs = ConnectionManager.select("TIPO", "ESTADO", "ID = (SELECT ID_ESTADO FROM CLIENTE WHERE ID = " + values.get(1) + ")");
+            String idClient = values.get(1);
+            ResultSet rs = ConnectionManager.select("TIPO", "ESTADO", "ID = (SELECT ID_ESTADO FROM CLIENTE WHERE ID = " + idClient + ")");
             if (rs.next() == false){
                 throw new SQLException ("NULL into column 'ID_CLIENTE'");
             } 
-            if (rs.getString("TIPO").equals ("SUSPENDIDO")){
+            if (rs.getString("TIPO").equals("SUSPENDIDO")){
                 throw new SQLException ("Client suspended");
             }
+            if (rs.getString("TIPO").equals("INACTIVO")){
+                ConnectionManager.update("CLIENTE", "ID_ESTADO", "(SELECT ID FROM ESTADO WHERE TIPO = 'ACTIVO')", "ID = " + idClient);
+            }
             ConnectionManager.insert("ORDEN", columns, values);
-            columns.clear();
-            columns.add("ID_ESTADO");
-            values.set(0,"(SELECT ID FROM ESTADO WHERE TIPO = 'ACTIVO')");
-            String condition = "ID = ";
-            if (organization)
-                        condition += "(SELECT ID_CLIENTE FROM ORGANIZACION WHERE CEDULA_JUR = '" + clientCed + "')";
-                    else
-                        condition += "(SELECT ID_CLIENTE FROM PERSONA WHERE CEDULA = '" + clientCed + "')";
-            ConnectionManager.update("CLIENTE",columns,values,condition);
         } catch (SQLException ex) {
             ErrorManager.orderInsertError(ex, organization);
         }
@@ -78,13 +73,14 @@ public class OrderQuery {
                 throw new PreviousSQLException (ex.getMessage());
             }
             try {
-            ResultSet rs1 = ConnectionManager.select("MONTO_BASE", "ORDEN", "ID = " + orderId);
-            rs1.next();
-            String oldCost = String.valueOf(rs1.getFloat("MONTO_BASE"));
-            ResultSet rs2 = ConnectionManager.select("PRECIO", "DETALLE", "ID_ORDEN = " + orderId + " AND ID = (SELECT MAX(ID) FROM DETALLE WHERE ID_ORDEN = " + orderId + ")");
-            rs2.next();
-            String currentCost = String.valueOf(rs2.getFloat("PRECIO"));
-            ConnectionManager.update("ORDEN", "MONTO_BASE",oldCost + " + " + currentCost, "ID = " + orderId);
+                ResultSet rs = ConnectionManager.select("MONTO_BASE", "ORDEN", "ID = " + orderId);
+                rs.next();
+                String oldCost = String.valueOf(rs.getFloat("MONTO_BASE"));
+                rs.close();
+                rs = ConnectionManager.select("PRECIO", "DETALLE", "ID_ORDEN = " + orderId + " AND ID = (SELECT MAX(ID) FROM DETALLE WHERE ID_ORDEN = " + orderId + ")");
+                rs.next();
+                String currentCost = String.valueOf(rs.getFloat("PRECIO"));
+                ConnectionManager.update("ORDEN", "MONTO_BASE", oldCost + " + " + currentCost, "ID = " + orderId);
             }catch (SQLException ex){
                 ErrorManager.orderUpdateError (ex);
                 throw new PreviousSQLException (ex.getMessage());
