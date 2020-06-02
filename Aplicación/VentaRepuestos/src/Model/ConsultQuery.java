@@ -388,6 +388,72 @@ public class ConsultQuery {
        }
        return orderList;
    }
+   
+   public static ArrayList<String[]> listDetailsForm(String orderId){
+       ArrayList<String[]> detailsList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsDetails = new ArrayList<>(){
+               {
+                   add("ID_PARTE");
+                   add("ID_PROVEEDOR");
+                   add("CANTIDAD");
+                   add("PRECIO");
+               }
+           };
+           ResultSet rsDetail = ConnectionManager.select(columnsDetails, "DETALLE", "ID_ORDEN = " + orderId);
+           while(rsDetail.next()){
+               String[] detail = new String[4];
+               for (int i = 1; i <= columnsDetails.size(); i++)
+                   detail[i-1] = String.valueOf(rsDetail.getObject(i));
+               detailsList.add(detail);
+           }
+           for (String[] detail : detailsList){
+               ResultSet rs = ConnectionManager.select("NOMBRE", "PARTE", "ID = " + detail[0]);
+               rs.next();
+               detail[0] = rs.getString("NOMBRE");
+               rs.close();
+               rs = ConnectionManager.select("NOMBRE", "PROVEEDOR", "ID = " + detail[1]);
+               rs.next();
+               detail[1] = rs.getString("NOMBRE");
+               rs.close();
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return detailsList;
+   }
+   
+   public static ArrayList<String[]> listPartProvidersDropdown(){
+       ArrayList<String[]> partProvList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsPartProv = new ArrayList<>(){
+               {
+                   add("ID_PARTE");
+                   add("ID_PROVEEDOR");
+               }
+           };
+           ResultSet rsPart = ConnectionManager.select(columnsPartProv, "PROVISION");
+           while(rsPart.next()){
+               String[] partProv = new String[4];
+               for (int i = 1; i <= columnsPartProv.size(); i++)
+                   partProv[i-1] = String.valueOf(rsPart.getObject(i));
+               partProvList.add(partProv);
+           }
+           for (String[] partProv : partProvList){
+               ResultSet rs = ConnectionManager.select("NOMBRE", "PARTE", "ID = " + partProv[0]);
+               rs.next();
+               partProv[2] = rs.getString("NOMBRE");
+               rs.close();
+               rs = ConnectionManager.select("NOMBRE", "PROVEEDOR", "ID = " + partProv[1]);
+               rs.next();
+               partProv[3] = rs.getString("NOMBRE");
+               rs.close();
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return partProvList;
+   }
 }
 
 

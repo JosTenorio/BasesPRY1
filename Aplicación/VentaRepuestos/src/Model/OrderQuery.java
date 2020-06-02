@@ -41,7 +41,7 @@ public class OrderQuery {
         }
     }
     
-    public static void addDetail(String orderId, String partId, String amount, String provider){
+    public static void addDetail(String orderId, String partId, String amount, String providerId){
         try {
             try {
                 ArrayList<String> columns = new ArrayList<String>() {
@@ -63,8 +63,8 @@ public class OrderQuery {
                         add(orderId);
                         add(partId);
                         add(amount);
-                        add("(SELECT ID FROM PROVEEDOR WHERE NOMBRE = '"  + provider + "')");
-                        add("(SELECT PRECIO_PUBLICO * " + amount + " FROM PROVISION WHERE ID_PARTE = " + partId + " AND ID_PROVEEDOR = (SELECT ID FROM PROVEEDOR WHERE NOMBRE = '" + provider + "'))");
+                        add(providerId);
+                        add("(SELECT PRECIO_PUBLICO * " + amount + " FROM PROVISION WHERE ID_PARTE = " + partId + " AND ID_PROVEEDOR = " + providerId + ")");
                     }
                 };
                 ConnectionManager.insert("DETALLE", columns, values);
