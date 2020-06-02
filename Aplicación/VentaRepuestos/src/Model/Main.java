@@ -12,7 +12,7 @@ public class Main {
             controller.makeVisible(true);
             
             //EJEMPLO INSERTAR ORDEN
-//            OrderQuery.insertOrder("01", "06", "2020", "117310466", false);
+//            OrderQuery.insertOrder("01", "06", "2020", "122223333", false);
 
             //EJEMPLO INSERTAR DETALLE
 //            OrderQuery.addDetail("1", "1", "5", "Super Repuestos");

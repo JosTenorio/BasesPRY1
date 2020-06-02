@@ -1,6 +1,7 @@
 
 package Model;
 
+import static Controller.OrderMenuController.IVA;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -318,6 +319,74 @@ public class ConsultQuery {
            Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
        }
        return autosList;
+   }
+   
+   public static ArrayList<String[]> listClientsDropdown(){
+       ArrayList<String[]> clientsList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsClients = new ArrayList<>(){
+               {
+                   add("NOMBRE");
+                   add("CEDULA");
+               }
+           };
+           ResultSet rs = ConnectionManager.select(columnsClients, "PERSONA");
+           while(rs.next()){
+               String[] client = new String[3];
+               for (int i = 1; i <= columnsClients.size(); i++)
+                   client[i-1] = String.valueOf(rs.getObject(i));
+               client[2] = "FALSE";
+               clientsList.add(client);
+           }
+           rs.close();
+           columnsClients.set(1, "CEDULA_JUR");
+           rs = ConnectionManager.select(columnsClients, "ORGANIZACION");
+           while(rs.next()){
+               String[] client = new String[3];
+               for (int i = 1; i <= columnsClients.size(); i++)
+                   client[i-1] = String.valueOf(rs.getObject(i));
+               client[2] = "TRUE";
+               clientsList.add(client);
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return clientsList;
+   }
+   
+   public static ArrayList<String[]> listOrdersTable(){
+       ArrayList<String[]> orderList = new ArrayList<>();
+       try {
+           ArrayList<String> columnsOrder = new ArrayList<>(){
+               {
+                   add("ID");
+                   add("ID_CLIENTE");
+                   add("FECHA");
+                   add("MONTO_BASE");
+               }
+           };
+           ResultSet rsOrder = ConnectionManager.select(columnsOrder, "ORDEN");
+           while(rsOrder.next()){
+               String[] order = new String[6];
+               for (int i = 1; i <= columnsOrder.size(); i++)
+                   order[i-1] = String.valueOf(rsOrder.getObject(i));
+               int basePrice = rsOrder.getInt("MONTO_BASE");
+               order[4] = String.valueOf(basePrice * IVA);
+               order[5] = String.valueOf((basePrice * IVA) + basePrice);
+               orderList.add(order);
+           }
+           for (String[] order : orderList){
+               ResultSet rs = ConnectionManager.select("NOMBRE", "PERSONA", "ID_CLIENTE = " + order[1]);
+               if (rs.next() == false){
+                   rs = ConnectionManager.select("NOMBRE", "ORGANIZACION", "ID_CLIENTE = " + order[1]);
+                   rs.next();
+               }
+               order[1] = rs.getString("NOMBRE");
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return orderList;
    }
 }
 
