@@ -2,27 +2,28 @@
 package Controller;
 
 import Model.ConsultQuery;
-import Model.PartQuery;
-import View.AutoInformationDisplay;
+import Model.OrderQuery;
+import View.DetailInformationDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
-public class AutoInformationController implements ActionListener{
+public class DetailInformationController implements ActionListener{
     
-    private static final AutoInformationDisplay display = new AutoInformationDisplay();
-    private static AutoInformationController firstInstance = null;
-    private ArrayList<String[]> partList;
-    private ArrayList<String[]> autoList;
+    private static final DetailInformationDisplay display = new DetailInformationDisplay();
+    private static DetailInformationController firstInstance = null;
+    private ArrayList<String[]> detailList;
+    private ArrayList<String[]> partProvList;
+    private String orderId;
     
-    private AutoInformationController(){
+    private DetailInformationController(){
         init();
     }
     
-    public static AutoInformationController getInstance(){
+    public static DetailInformationController getInstance(){
         if (firstInstance == null)
-            firstInstance = new AutoInformationController();
+            firstInstance = new DetailInformationController();
         return firstInstance;
     }
     
@@ -33,41 +34,49 @@ public class AutoInformationController implements ActionListener{
         display.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     
-    public void makeVisible(boolean visible){
+    public void makeVisible(boolean visible, String orderId){
         display.setVisible(visible);
+        this.orderId = orderId;
         clearInfo();
-        if (visible == true)
+        if (visible == true){
             updateComboBoxData();
+            updateTableData();
+        }
     }      
 
     public void updateComboBoxData(){
         display.comboBoxModelPart.removeAllElements();
-        display.comboBoxModelAuto.removeAllElements();
-        partList = ConsultQuery.listPartsDropdown();
-        for (String[] part : partList)
-            display.comboBoxModelPart.addElement(part[1]);
-        autoList = ConsultQuery.listAutosDropdown();
-        for (String[] auto : autoList)
-            display.comboBoxModelAuto.addElement(auto[1] + " (" + auto[2] + ")");
+        partProvList = ConsultQuery.listPartProvidersDropdown();
+        for (String[] partProv : partProvList)
+            display.comboBoxModelPart.addElement(partProv[2] + " (" + partProv[3] + ")");
         display.jComboBox_Part.setModel(display.comboBoxModelPart);
-        display.jComboBox_Auto.setModel(display.comboBoxModelAuto);
+    }
+    
+    public void updateTableData(){
+        display.tableModel.setRowCount(0);
+        detailList = ConsultQuery.listDetailsForm(orderId);
+        for (String[] detail : detailList)
+            display.tableModel.addRow(detail);
+        display.jTable_Detail.setModel(display.tableModel);
     }
     
     public void clearInfo(){
+        display.jTextField_Amount.setText("");
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(display.jButton_Accept)){
-            addNewPartAuto();
-            AutoMenuController.getInstance().updateTableData();
-            display.setVisible(false);
+            addNewDetail();
+            updateTableData();
+            OrderMenuController.getInstance().updateTableData();
         }
     }
     
-    private void addNewPartAuto(){
-        String partId = partList.get(display.jComboBox_Part.getSelectedIndex())[0];
-        String autoId = autoList.get(display.jComboBox_Auto.getSelectedIndex())[0];
-        PartQuery.asociatePartCar(partId, autoId);
+    private void addNewDetail(){
+        String partId = partProvList.get(display.jComboBox_Part.getSelectedIndex())[0];
+        String provId = partProvList.get(display.jComboBox_Part.getSelectedIndex())[1];
+        String amount = display.jTextField_Amount.getText();
+        OrderQuery.addDetail(orderId, partId, provId, amount);
     }
 }

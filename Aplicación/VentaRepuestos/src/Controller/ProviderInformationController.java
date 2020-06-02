@@ -59,14 +59,11 @@ public class ProviderInformationController implements ActionListener{
     public void clearInfo(){
         display.jTextField_PriceProv.setText("");
         display.jTextField_Gain.setText("");
-        display.jTextField_PricePub.setText("");
-        display.jTextField_PricePub.setEditable(false);
     }
     
     public void setInfo(String[] partProv){
         display.jTextField_PriceProv.setText(partProv[4]);
         display.jTextField_Gain.setText(partProv[5]);
-        display.jTextField_PricePub.setText(partProv[6]);
         display.jComboBox_Part.setSelectedItem(partProv[2]);
         display.jComboBox_Provider.setSelectedItem(partProv[3]);
         display.jComboBox_Part.setEnabled(false);

@@ -30,11 +30,9 @@ public class ProviderInformationDisplay extends javax.swing.JFrame {
         jLabel_Provider = new javax.swing.JLabel();
         jLabel_Gain = new javax.swing.JLabel();
         jLabel_PriceProv = new javax.swing.JLabel();
-        jLabel_PricePub = new javax.swing.JLabel();
         jButton_Accept = new javax.swing.JButton();
         jTextField_PriceProv = new javax.swing.JTextField();
         jTextField_Gain = new javax.swing.JTextField();
-        jTextField_PricePub = new javax.swing.JTextField();
         jComboBox_Provider = new javax.swing.JComboBox<>();
         jComboBox_Part = new javax.swing.JComboBox<>();
         jLabel_Percent = new javax.swing.JLabel();
@@ -87,11 +85,6 @@ public class ProviderInformationDisplay extends javax.swing.JFrame {
         jLabel_PriceProv.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel_PriceProv.setText("PRECIO PROVEEDOR:");
 
-        jLabel_PricePub.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel_PricePub.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel_PricePub.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel_PricePub.setText("PRECIO PUBLICO:");
-
         jButton_Accept.setBackground(new java.awt.Color(153, 0, 0));
         jButton_Accept.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
         jButton_Accept.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,8 +93,6 @@ public class ProviderInformationDisplay extends javax.swing.JFrame {
         jTextField_PriceProv.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
 
         jTextField_Gain.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-
-        jTextField_PricePub.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
 
         jComboBox_Provider.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
         jComboBox_Provider.setForeground(new java.awt.Color(0, 0, 0));
@@ -132,18 +123,16 @@ public class ProviderInformationDisplay extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel_PriceProv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel_Gain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel_PricePub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel_Gain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField_PricePub, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel_BGLayout.createSequentialGroup()
                         .addComponent(jTextField_Gain, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel_Percent, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextField_PriceProv, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_BGLayout.createSequentialGroup()
+            .addGroup(jPanel_BGLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton_Accept, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -169,13 +158,9 @@ public class ProviderInformationDisplay extends javax.swing.JFrame {
                     .addComponent(jTextField_Gain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_Gain)
                     .addComponent(jLabel_Percent))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_PricePub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_PricePub))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jButton_Accept, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,13 +186,11 @@ public class ProviderInformationDisplay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Part;
     private javax.swing.JLabel jLabel_Percent;
     private javax.swing.JLabel jLabel_PriceProv;
-    private javax.swing.JLabel jLabel_PricePub;
     private javax.swing.JLabel jLabel_Provider;
     private javax.swing.JLabel jLabel_Title;
     private javax.swing.JPanel jPanel_BG;
     private javax.swing.JPanel jPanel_Header;
     public javax.swing.JTextField jTextField_Gain;
     public javax.swing.JTextField jTextField_PriceProv;
-    public javax.swing.JTextField jTextField_PricePub;
     // End of variables declaration//GEN-END:variables
 }

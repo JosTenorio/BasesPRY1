@@ -41,7 +41,7 @@ public class OrderQuery {
         }
     }
     
-    public static void addDetail(String orderId, String partId, String amount, String providerId){
+    public static void addDetail(String orderId, String partId, String providerId, String amount){
         try {
             try {
                 ArrayList<String> columns = new ArrayList<String>() {

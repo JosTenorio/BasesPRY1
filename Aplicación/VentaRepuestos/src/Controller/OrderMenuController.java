@@ -45,7 +45,7 @@ public class OrderMenuController implements ActionListener{
             public void actionPerformed(ActionEvent arg0) {
                 int index = display.jTable_Orders.getSelectedRow();
                 if (index != -1){
-                    //handle add details
+                    DetailInformationController.getInstance().makeVisible(true, orderList.get(index)[0]);
                 }
             }
         });
