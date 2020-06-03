@@ -25,7 +25,7 @@ public class ClientQuery {
         }     
     }
     
-    private static void insertClientAux(ArrayList<String> information, boolean organization) throws PreviousSQLException {
+    private static void insertClientAux(ArrayList<String> information, boolean organization) throws PreviousSQLException {           
             ArrayList<String> columns = new ArrayList<>(){
                 {
                     if (organization){
@@ -50,6 +50,9 @@ public class ClientQuery {
             information.add("(SELECT MAX(ID) FROM CLIENTE)");
             if (organization) {
                 try {
+                    if (information.get(0).equals("")){
+                       throw new SQLException ("Empty client name");
+                    }
                     ConnectionManager.insert("ORGANIZACION", columns, information);
                 }catch (SQLException ex) {
                     ErrorManager.organizationInsertError(ex);
@@ -58,6 +61,9 @@ public class ClientQuery {
             }
             else {
                 try {
+                    if (information.get(0).equals("")){
+                       throw new SQLException ("Empty client name");
+                    }
                     ConnectionManager.insert("PERSONA", columns, information);
                 } catch (SQLException ex) {
                     ErrorManager.personInsertError(ex);
@@ -86,6 +92,9 @@ public class ClientQuery {
                 for (String telephone : telephones){ 
                     values.set(1,"'" + telephone + "'");
                     try {
+                        if (!telephone.matches("[0-9]+")) {
+                            throw new SQLException ("Non-numerical telephone");
+                        }
                         ConnectionManager.insert("TELEFONOS_ORGANIZACION", columns, values);
                     } catch (SQLException ex) {
                         ErrorManager.telephoneInsertError(ex, telephone);
@@ -95,6 +104,9 @@ public class ClientQuery {
                 for (String telephone : telephones){
                     values.set(1, "'" + telephone + "'" );
                     try {
+                        if (!telephone.matches("[0-9]+")) {
+                            throw new SQLException ("Non-numerical telephone");
+                        }
                         ConnectionManager.insert("TELEFONOS_PERSONA", columns, values);
                     } catch (SQLException ex) {
                         ErrorManager.telephoneInsertError(ex, telephone);
@@ -126,6 +138,9 @@ public class ClientQuery {
     }
     
     public static void modifyClientAux(String clientId, ArrayList<String> information, boolean organization) throws SQLException{
+            if (information.get(0).equals("")){
+                throw new SQLException ("Empty client name");
+            }    
             ArrayList<String> columns = new ArrayList<>(){
                 {
                     if (organization){

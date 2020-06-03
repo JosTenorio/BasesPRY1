@@ -22,6 +22,8 @@ public class PartQuery {
                     add("(SELECT ID FROM FAB_PARTES WHERE NOMBRE = '" + fabricator + "')");
                 }
             };
+            if (name.equals(""))
+                throw new SQLException ("Empy part name");
             ConnectionManager.insert("PARTE", columns, values);
         } catch (SQLException ex) {
             ErrorManager.partInsertError(ex);

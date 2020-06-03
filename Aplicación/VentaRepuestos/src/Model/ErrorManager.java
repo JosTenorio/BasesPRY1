@@ -12,12 +12,32 @@ public class ErrorManager {
     
     public static void detailInsertError (SQLException exception) {
         String message = exception.getMessage();
-        if (message.contains ("NULL into column 'PRECIO'")) {
-            infoBox ("La clave de orden dada no corresponde a ninguna orden guardada en el sistema","Operación no realizada");
+        if (message.contains ("Empty order ID")) {
+            infoBox ("Debe brindar una clave de orden para agregar un detalle","Operación no realizada");
         }
+        else if (message.contains ("Empty part ID")) {
+            infoBox ("Debe brindar una clave de parte para agregar un detalle","Operación no realizada");
+        }
+        else if (message.contains ("Empty provider ID")) {
+            infoBox ("Debe brindar una clave de proveedor para agregar un detalle","Operación no realizada");
+        }
+        else if (message.contains ("Empty amount")) {
+            infoBox ("Debe brindar una cantidad de compra para agregar un detalle","Operación no realizada");
+        }
+        else if (message.contains ("NULL into column 'PRECIO'")) {
+            infoBox ("Las claves de proveedor y parte dadas no corresponden a ninguna proveeduría dada","Operación no realizada");
+        }
+        else if (message.contains ("FK_DET_ORDEN")) {
+            infoBox ("La clave de orden dada no pertenece a ninguna orden registrada","Operación no realizada");
+        }
+        else if (message.contains ("CH_PRECIO")||message.contains ("Non-numerical amount")) {
+            infoBox ("La cantidad de compra debe ser un numero natural mayor que cero","Operación no realizada");
+        }
+        else if (message.contains ("Arithmetic overflow"))
+            infoBox ("El monto ingresado en la cantidad de compra y/o claves es demasiado alto o bajo","Operación no realizada");
         else if (message.contains ("Incorrect syntax")||message.contains ("Invalid column name")) 
-            infoBox ("Se deben digitar únicamente números en los campos "
-                    + "clave de orden, clave de parte y cantidad. Favor revisar dichos campos","Operación no realizada");
+        infoBox ("Se deben digitar únicamente números en los campos "
+           + "clave de orden, clave de parte, cantidad y clave del proveedor. Favor revisar dichos campos","Operación no realizada");
         else
             infoBox (message,"Operación no realizada");
     }
@@ -133,7 +153,10 @@ public class ErrorManager {
                 infoBox ("La cedula dada no coincide con ninguna persona en el sistema","Operación no realizada");
         else if (message.contains ("NULL into column 'ID_ESTADO'")){
             infoBox ("El nuevo estado del cliente no esta registrado en el sistema","Operación no realizada");
-        }    
+        }
+        else if (message.contains("Empty client name")) {
+            infoBox ("No se puede registrar un cliente sin nombre, favor rellenar dicho campo","Operación no realizada");
+        }
         else
             infoBox (message,"Operación no realizada");
     }
@@ -143,6 +166,9 @@ public class ErrorManager {
         String message = exception.getMessage();
         if (message.contains("CH1_CEDJ")||message.contains("CH2_CEDJ")||(message.contains("truncated")&& message.contains("column 'CEDULA_JUR'"))) {
             infoBox ("La cédula jurídica dada es inválida, esta debe estar compuesta exactamente por 10 dígitos","Operación no realizada");
+        }
+        else if (message.contains("Empty client name")) {
+            infoBox ("Debe nombrar la nueva organización a registrar","Operación no realizada");
         }
         else if (message.contains("PK_ORG")) {
             infoBox ("La cédula jurídica dada es inválida, esta ya se encuentra registrada en el sistema","Operación no realizada");
@@ -161,6 +187,9 @@ public class ErrorManager {
         else if (message.contains("PK_PER")) {
             infoBox ("La cédula dada es inválida, esta ya se encuentra registrada en el sistema","Operación no realizada");
         }
+        else if (message.contains("Empty client name")) {
+            infoBox ("Debe nombrar la nueva persona a registrar","Operación no realizada");
+        }
         else{
             infoBox (message,"Operación no realizada");
         }
@@ -170,7 +199,7 @@ public class ErrorManager {
     {
         String message = exception.getMessage();
         if (message.contains("truncated")&& message.contains("column 'TELEFONO'")||message.contains("CH2_TELORG")||
-                message.contains("CH1_TELORG")||message.contains("CH1_TELPER")||message.contains("CH2_TELPER")) {
+                message.contains("CH1_TELORG")||message.contains("CH1_TELPER")||message.contains("CH2_TELPER")||message.contains("Non-numerical telephone")) {
             infoBox ("Uno de los telefonos dados es inválido y ha sido ignorado por el sistema, todos deben estar compuestos exactamente por 8 dígitos","Telefono ignorado");
         }
         else if (message.contains("PK_TELORG")||message.contains("PK_TELPER")) {
@@ -189,6 +218,8 @@ public class ErrorManager {
             infoBox ("El nombre de marca dado no esta registrado en el sistema","Operacion no realizada");
         else if (message.contains("AK_PARTE"))
             infoBox ("Ya existe una parte con el nombre dado en el sistema","Operacion no realizada");
+        else if (message.contains("Empty part name"))
+            infoBox ("Se requiere un nombre para la parte a agregar","Operacion no realizada");
         else
             infoBox (message,"Operacion no realizada");
     }

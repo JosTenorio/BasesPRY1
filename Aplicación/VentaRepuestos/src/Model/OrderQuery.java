@@ -44,6 +44,17 @@ public class OrderQuery {
     public static void addDetail(String orderId, String partId, String amount, String providerId){
         try {
             try {
+                if (orderId.equals(""))
+                    throw new SQLException ("Empty order ID");
+                if (partId.equals(""))
+                    throw new SQLException ("Empty part ID");
+                if (providerId.equals(""))
+                    throw new SQLException ("Empty provider ID");
+                if (amount.equals(""))
+                    throw new SQLException ("Empty amount");
+                if (!amount.matches("[0-9]+")) {
+                    throw new SQLException ("Non-numerical amount");
+                }
                 ArrayList<String> columns = new ArrayList<String>() {
                     {
                         add("ID");
@@ -85,7 +96,8 @@ public class OrderQuery {
                 ErrorManager.orderUpdateError (ex);
                 throw new PreviousSQLException (ex.getMessage());
             }
-        } catch (PreviousSQLException ex) {
+        } 
+            catch (PreviousSQLException ex) {
         }
     }
 }
