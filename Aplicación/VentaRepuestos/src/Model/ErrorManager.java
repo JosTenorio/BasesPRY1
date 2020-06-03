@@ -88,6 +88,8 @@ public class ErrorManager {
                     + "favor revisar dicho campo","Operación no realizada");
         else if (message.equals ("No rows affected")) 
             infoBox ("El ID dado no corresponde a ninguna parte guardada en el sistema","Operación no realizada");
+        else if (message.contains ("FK_DET_PARTE")) 
+            infoBox ("Esta parte esta presente en una o mas órdenes, por lo que no se puede eliminar","Operación no realizada");
         else{
             infoBox (message,"Operación no realizada");
         }  
