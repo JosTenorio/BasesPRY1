@@ -7,12 +7,12 @@ import javax.swing.table.DefaultTableModel;
 public class DetailInformationDisplay extends javax.swing.JFrame {
     
     public DefaultComboBoxModel comboBoxModelPart;
-    public DefaultTableModel tableModelDetails;
+    public DefaultTableModel tableModel;
 
     public DetailInformationDisplay() {
         initComponents();
         this.comboBoxModelPart = (DefaultComboBoxModel) jComboBox_Part.getModel();
-        this.tableModelDetails = (DefaultTableModel) jTable_Detail.getModel();
+        this.tableModel = (DefaultTableModel) jTable_Detail.getModel();
     }
    
     /**
@@ -174,7 +174,7 @@ public class DetailInformationDisplay extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_BG;
     private javax.swing.JPanel jPanel_Header;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable_Detail;
+    public javax.swing.JTable jTable_Detail;
     public javax.swing.JTextField jTextField_Amount;
     // End of variables declaration//GEN-END:variables
 }
