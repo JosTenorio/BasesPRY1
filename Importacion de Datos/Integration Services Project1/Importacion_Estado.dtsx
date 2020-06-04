@@ -12,8 +12,8 @@
   DTS:LocaleID="5130"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Importacion_Estado"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{5BF87FF5-3A46-453E-9032-D2D6007147FA}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{1A1E196E-A129-4F80-9EAF-2DAFF65AA81F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,13 +41,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task 1"
+      DTS:refId="Package\Importacion_de_estados"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:DTSID="{DC111951-8ED3-47FC-94FF-84D710475F4E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task 1"
+      DTS:ObjectName="Importacion_de_estados"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -56,7 +56,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task 1\Destination - ESTADO"
+              refId="Package\Importacion_de_estados\Destination - ESTADO"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
@@ -91,7 +91,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Destination - ESTADO.Connections[IDbConnection]"
+                  refId="Package\Importacion_de_estados\Destination - ESTADO.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DestinationConnectionAdoNET]"
                   connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionAdoNET]"
                   description="Managed connection manager"
@@ -99,27 +99,27 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\Destination - ESTADO.Inputs[Destination Input]"
+                  refId="Package\Importacion_de_estados\Destination - ESTADO.Inputs[Destination Input]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - ESTADO.Inputs[Destination Input].Columns[Estado]"
+                      refId="Package\Importacion_de_estados\Destination - ESTADO.Inputs[Destination Input].Columns[Estado]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Estado"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ESTADO.Inputs[Destination Input].ExternalColumns[TIPO]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Output].Columns[Estado]" />
+                      externalMetadataColumnId="Package\Importacion_de_estados\Destination - ESTADO.Inputs[Destination Input].ExternalColumns[TIPO]"
+                      lineageId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Output].Columns[Estado]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - ESTADO.Inputs[Destination Input].ExternalColumns[ID]"
+                      refId="Package\Importacion_de_estados\Destination - ESTADO.Inputs[Destination Input].ExternalColumns[ID]"
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - ESTADO.Inputs[Destination Input].ExternalColumns[TIPO]"
+                      refId="Package\Importacion_de_estados\Destination - ESTADO.Inputs[Destination Input].ExternalColumns[TIPO]"
                       dataType="wstr"
                       length="10"
                       name="TIPO" />
@@ -128,22 +128,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Destination - ESTADO.Outputs[ADO NET Destination Error Output]"
+                  refId="Package\Importacion_de_estados\Destination - ESTADO.Outputs[ADO NET Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="ADO NET Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task 1\Destination - ESTADO.Inputs[Destination Input]">
+                  synchronousInputId="Package\Importacion_de_estados\Destination - ESTADO.Inputs[Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Importacion_de_estados\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Importacion_de_estados\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Importacion_de_estados\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Importacion_de_estados\Destination - ESTADO.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -152,7 +152,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\Source - Query"
+              refId="Package\Importacion_de_estados\Source - Query"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Excel Source"
@@ -193,7 +193,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Source - Query.Connections[OleDbConnection]"
+                  refId="Package\Importacion_de_estados\Source - Query.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
                   connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
                   description="The OLE DB runtime connection used to access the database."
@@ -201,50 +201,50 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Output]"
+                  refId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Output]"
                   name="Excel Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Output].Columns[Estado]"
+                      refId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Output].Columns[Estado]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Output].ExternalColumns[Estado]"
+                      externalMetadataColumnId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Output].ExternalColumns[Estado]"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Output].Columns[Estado]"
+                      lineageId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Output].Columns[Estado]"
                       name="Estado"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Output].ExternalColumns[Estado]"
+                      refId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Output].ExternalColumns[Estado]"
                       dataType="wstr"
                       length="255"
                       name="Estado" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Error Output]"
+                  refId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Error Output]"
                   isErrorOut="true"
                   name="Excel Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Error Output].Columns[Estado]"
+                      refId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Error Output].Columns[Estado]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Error Output].Columns[Estado]"
+                      lineageId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Error Output].Columns[Estado]"
                       name="Estado" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -255,10 +255,10 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task 1.Paths[Excel Source Output]"
-              endId="Package\Data Flow Task 1\Destination - ESTADO.Inputs[Destination Input]"
+              refId="Package\Importacion_de_estados.Paths[Excel Source Output]"
+              endId="Package\Importacion_de_estados\Destination - ESTADO.Inputs[Destination Input]"
               name="Excel Source Output"
-              startId="Package\Data Flow Task 1\Source - Query.Outputs[Excel Source Output]" />
+              startId="Package\Importacion_de_estados\Source - Query.Outputs[Excel Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -277,27 +277,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Data Flow Task 1"
-          TopLeft="5.5,5.49999999999995" />
+          Size="192,41.6"
+          Id="Package\Importacion_de_estados"
+          TopLeft="27.4999991257985,18.6733334380255" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task 1">
+    design-time-name="Package\Importacion_de_estados">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="148.8,41.6"
-          Id="Package\Data Flow Task 1\Source - Query"
+          Id="Package\Importacion_de_estados\Source - Query"
           TopLeft="22.3,5.49999999999995" />
         <NodeLayout
           Size="182.4,41.6"
-          Id="Package\Data Flow Task 1\Destination - ESTADO"
+          Id="Package\Importacion_de_estados\Destination - ESTADO"
           TopLeft="5.50000000000001,107.1" />
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Excel Source Output]"
+          Id="Package\Importacion_de_estados.Paths[Excel Source Output]"
           TopLeft="96.7,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
