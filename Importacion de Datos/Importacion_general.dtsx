@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Importacion_General"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{FC371E3E-00CB-4D5B-A3FE-8364B39EB672}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{EEE973D3-DB1E-43B2-8EA0-91927ED62B9A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2166,16 +2166,52 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\Borrado de tabla temporal de autos"
+          TopLeft="589.999976555507,65.866667190128" />
+        <NodeLayout
+          Size="257.6,41.6"
+          Id="Package\Borrado de tabla temporal de telefonos"
+          TopLeft="586.666643354629,131.733334380256" />
+        <NodeLayout
+          Size="245.6,41.6"
+          Id="Package\Creacion de tabla temporal de autos"
+          TopLeft="295.999988238017,6.9333333884345" />
+        <NodeLayout
+          Size="265.6,41.6"
+          Id="Package\Creacion de tabla temporal de Telefonos"
+          TopLeft="294.799987681707,163.306667900933" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Importacion de autos"
+          TopLeft="627.199975681306,0.373332528856068" />
+        <NodeLayout
           Size="186.4,41.6"
           Id="Package\Importacion de estados"
-          TopLeft="45.9999981721244,23.5733335206774" />
+          TopLeft="45.9999981721244,26.3466668760512" />
         <NodeLayout
           Size="243.2,41.6"
           Id="Package\Importacion de fabricantes de autos"
-          TopLeft="20.6666658454472,89.1199999008178" />
+          TopLeft="20.6666658454472,91.8933332561916" />
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Importacion de fabricantes de partes"
+          TopLeft="15.9999993642172,174.079999768575" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Importacion de marcas"
+          TopLeft="51.33333129353,241.280001917521" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Importacion de proveedores"
+          TopLeft="317.999987363816,240.26666776869" />
+        <NodeLayout
+          Size="263.2,41.6"
+          Id="Package\Importacion de Telefonos del Proveedor"
+          TopLeft="289.999988476436,92.2666665289138" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="140.733332008786,65.1733335206774">
+          TopLeft="140.733332008786,67.9466668760512">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2195,13 +2231,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="247.2,41.6"
-          Id="Package\Importacion de fabricantes de partes"
-          TopLeft="15.9999993642172,171.306666413201" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="140.933332604832,130.719999900818">
+          TopLeft="140.933332604832,133.493333256192">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2221,13 +2253,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="184,41.6"
-          Id="Package\Importacion de marcas"
-          TopLeft="51.33333129353,238.506668562147" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="141.466665328874,212.906666413201">
+          TopLeft="141.466665328874,215.679999768575">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2247,13 +2275,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Importacion de proveedores"
-          TopLeft="317.999987363816,237.493334413316" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="235.33333129353,258.800001487732">
+          TopLeft="235.33333129353,261.573334843106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2273,17 +2297,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="263.2,41.6"
-          Id="Package\Importacion de Telefonos del Proveedor"
-          TopLeft="289.999988476436,89.49333317354" />
-        <NodeLayout
-          Size="265.6,41.6"
-          Id="Package\Creacion de tabla temporal de Telefonos"
-          TopLeft="294.799987681707,160.533334545559" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="424.599988079071,160.533334545559">
+          TopLeft="424.599988079071,163.306667900933">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2305,7 +2321,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="424.799987522761,237.493334413316">
+          TopLeft="424.799987522761,240.26666776869">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2325,17 +2341,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Importacion de autos"
-          TopLeft="600.533310074277,0.373332528856068" />
-        <NodeLayout
-          Size="245.6,41.6"
-          Id="Package\Creacion de tabla temporal de autos"
-          TopLeft="295.999988238017,4.16000003306069" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="420.199988357227,89.49333317354">
+          TopLeft="420.199988357227,92.2666665289138">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2357,18 +2365,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="541.599988238017,23.0666662809584">
+          TopLeft="541.599988238017,24.4533329586453">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.93332183626,0"
+              EndConnector="85.5999874432886,0"
               Start="0,0"
-              End="51.43332183626,0">
+              End="78.0999874432886,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="51.43332183626,0" />
+                    End="78.0999874432886,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2377,36 +2385,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="240.8,41.6"
-          Id="Package\Borrado de tabla temporal de autos"
-          TopLeft="579.333310312696,64.4800005124411" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="688.133310074277,41.9733325288561">
+          TopLeft="712.599976118406,41.9733325288561">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.6000002384186,22.506667983585"
+              EndConnector="0,23.8933346612719"
               Start="0,0"
-              End="11.6000002384186,15.006667983585">
+              End="0,16.3933346612719">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.25333399179249" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.25333399179249"
-                    Point2="0,11.2533339917925"
-                    Point3="4,11.2533339917925" />
-                  <mssgle:LineSegment
-                    End="7.6000002384186,11.2533339917925" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.6000002384186,11.2533339917925"
-                    Point2="11.6000002384186,11.2533339917925"
-                    Point3="11.6000002384186,15.2533339917925" />
-                  <mssgle:LineSegment
-                    End="11.6000002384186,15.006667983585" />
+                    End="0,16.3933346612719" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2415,36 +2407,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="257.6,41.6"
-          Id="Package\Borrado de tabla temporal de telefonos"
-          TopLeft="584.666643434102,150.453334529029" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="699.733310312696,106.080000512441">
+          TopLeft="712.933309955068,107.466667190128">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="13.7333331214058,44.373334016588"
+              EndConnector="0,24.2666671901278"
               Start="0,0"
-              End="13.7333331214058,36.873334016588">
+              End="0,16.7666671901278">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.186667008294" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.186667008294"
-                    Point2="0,22.186667008294"
-                    Point3="4,22.186667008294" />
-                  <mssgle:LineSegment
-                    End="9.73333312140585,22.186667008294" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.73333312140585,22.186667008294"
-                    Point2="13.7333331214058,22.186667008294"
-                    Point3="13.7333331214058,26.186667008294" />
-                  <mssgle:LineSegment
-                    End="13.7333331214058,36.873334016588" />
+                    End="0,16.7666671901278" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2457,33 +2433,29 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Importacion de estados">
+    design-time-name="Package\Importacion de autos">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Importacion de estados\Destination - ESTADO"
-          TopLeft="5.50000000000001,107.1" />
+          Size="203.2,41.6"
+          Id="Package\Importacion de autos\Destination - AUTO_TEMP"
+          TopLeft="NaN,NaN" />
         <NodeLayout
           Size="148.8,41.6"
-          Id="Package\Importacion de estados\Source - Query"
-          TopLeft="22.3,5.49999999999995" />
+          Id="Package\Importacion de autos\Source - Query"
+          TopLeft="NaN,NaN" />
         <EdgeLayout
-          Id="Package\Importacion de estados.Paths[Excel Source Output]"
-          TopLeft="96.7,47.1">
+          Id="Package\Importacion de autos.Paths[Excel Source Output]"
+          TopLeft="NaN,NaN">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="{assembly:Null}"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,0">
               <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
+                <assembly:Null />
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
@@ -2497,18 +2469,56 @@
     </LayoutInfo>
   </TaskHost>
   <TaskHost
+    design-time-name="Package\Importacion de estados">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Importacion de estados\Source - Query"
+          TopLeft="22.3,5.49999999999995" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Importacion de estados\Destination - ESTADO"
+          TopLeft="5.50000000000001,107.1" />
+        <EdgeLayout
+          Id="Package\Importacion de estados.Paths[Excel Source Output]"
+          TopLeft="96.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\Importacion de fabricantes de autos">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\Importacion de fabricantes de autos\Destination - FAB_AUTOS"
-          TopLeft="5.50000000000001,107.1" />
-        <NodeLayout
           Size="148.8,41.6"
           Id="Package\Importacion de fabricantes de autos\Source - Query"
           TopLeft="31.9,5.49999999999995" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Importacion de fabricantes de autos\Destination - FAB_AUTOS"
+          TopLeft="5.50000000000001,107.1" />
         <EdgeLayout
           Id="Package\Importacion de fabricantes de autos.Paths[Excel Source Output]"
           TopLeft="106.3,47.1">
@@ -2542,13 +2552,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="207.2,41.6"
-          Id="Package\Importacion de fabricantes de partes\Destination - FAB_PARTES"
-          TopLeft="5.50000000000001,107.1" />
-        <NodeLayout
           Size="148.8,41.6"
           Id="Package\Importacion de fabricantes de partes\Source - Query"
           TopLeft="34.7,5.49999999999995" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Importacion de fabricantes de partes\Destination - FAB_PARTES"
+          TopLeft="5.50000000000001,107.1" />
         <EdgeLayout
           Id="Package\Importacion de fabricantes de partes.Paths[Excel Source Output]"
           TopLeft="109.1,47.1">
@@ -2583,11 +2593,11 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="NaN,NaN"
-          Id="Package\Importacion de marcas\Destination - MARCA"
+          Id="Package\Importacion de marcas\Source - Query"
           TopLeft="NaN,NaN" />
         <NodeLayout
           Size="NaN,NaN"
-          Id="Package\Importacion de marcas\Source - Query"
+          Id="Package\Importacion de marcas\Destination - MARCA"
           TopLeft="NaN,NaN" />
         <EdgeLayout
           Id="Package\Importacion de marcas.Paths[Excel Source Output]"
@@ -2659,50 +2669,14 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="NaN,NaN"
-          Id="Package\Importacion de Telefonos del Proveedor\Destination - TELEFONOS_TEMP"
+          Id="Package\Importacion de Telefonos del Proveedor\Source - Query"
           TopLeft="NaN,NaN" />
         <NodeLayout
           Size="NaN,NaN"
-          Id="Package\Importacion de Telefonos del Proveedor\Source - Query"
+          Id="Package\Importacion de Telefonos del Proveedor\Destination - TELEFONOS_TEMP"
           TopLeft="NaN,NaN" />
         <EdgeLayout
           Id="Package\Importacion de Telefonos del Proveedor.Paths[Excel Source Output]"
-          TopLeft="NaN,NaN">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="{assembly:Null}"
-              Start="0,0"
-              End="0,0">
-              <mssgle:Curve.Segments>
-                <assembly:Null />
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Importacion de autos">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Importacion de autos\Destination - AUTO_TEMP"
-          TopLeft="NaN,NaN" />
-        <NodeLayout
-          Size="148.8,41.6"
-          Id="Package\Importacion de autos\Source - Query"
-          TopLeft="NaN,NaN" />
-        <EdgeLayout
-          Id="Package\Importacion de autos.Paths[Excel Source Output]"
           TopLeft="NaN,NaN">
           <EdgeLayout.Curve>
             <mssgle:Curve
