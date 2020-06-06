@@ -454,6 +454,55 @@ public class ConsultQuery {
        }
        return partProvList;
    }
+
+   public static ArrayList<String[]> listPartProvidersTable(String partName){
+       ArrayList<String[]> partProvList = new ArrayList<>();
+       String partId = null;
+       try {
+           //puede que se ingrese un nombre que no existe, si el rs no encuentra nada hay que abortar
+           ResultSet rs = ConnectionManager.select("ID", "PARTE", "NOMBRE = '" + partName + "'");
+           rs.next();
+           partId = rs.getString("ID");
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       //de aqui en adelante no se ocupa validacion
+       try {
+           ArrayList<String> columnsPartProv = new ArrayList<>(){
+               {
+                   add("ID_PARTE");
+                   add("ID_PROVEEDOR");
+                   add("PRECIO_PROVEEDOR");
+                   add("POR_GANANCIA");
+                   add("PRECIO_PUBLICO");
+               }
+           };
+           ResultSet rsPart = ConnectionManager.select(columnsPartProv, "PROVISION", "ID_PARTE = " + partId);
+           while(rsPart.next()){
+               String[] partProv = new String[7];
+               for (int i = 1; i <= columnsPartProv.size(); i++)
+                   partProv[i-1] = String.valueOf(rsPart.getObject(i));
+               partProvList.add(partProv);
+           }
+           for (String[] partProv : partProvList){
+               partProv[6] = partProv[4];
+               partProv[5] = partProv[3];
+               partProv[4] = partProv[2];
+               ResultSet rs = ConnectionManager.select("NOMBRE", "PARTE", "ID = " + partProv[0]);
+               rs.next();
+               partProv[2] = rs.getString("NOMBRE");
+               rs.close();
+               rs = ConnectionManager.select("NOMBRE", "PROVEEDOR", "ID = " + partProv[1]);
+               rs.next();
+               partProv[3] = rs.getString("NOMBRE");
+               rs.close();
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return partProvList;
+   }
 }
+
 
 

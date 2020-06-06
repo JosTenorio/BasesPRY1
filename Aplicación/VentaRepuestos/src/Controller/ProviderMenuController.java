@@ -31,6 +31,8 @@ public class ProviderMenuController implements ActionListener{
     private void init(){
         display.jButton_NewPartProvider.addActionListener(this);
         display.jButton_Back.addActionListener(this);
+        display.jButton_Search.addActionListener(this);
+        display.jButton_Refresh.addActionListener(this);
         initPopUpMenu();
         initTable();
         display.setResizable(false);
@@ -87,5 +89,14 @@ public class ProviderMenuController implements ActionListener{
         if (e.getSource().equals(display.jButton_NewPartProvider)){
             ProviderInformationController.getInstance().makeVisible(true, true);
         }
+        if (e.getSource().equals(display.jButton_Search)){
+            display.tableModel.setRowCount(0);
+            partProvList = ConsultQuery.listPartProvidersTable(display.jTextField_SearchPart.getText());
+            for (String[] partProv : partProvList)
+                display.tableModel.addRow(Arrays.copyOfRange(partProv, 2, 7));
+            display.jTable_Provider.setModel(display.tableModel);
+        }
+        if (e.getSource().equals(display.jButton_Refresh))
+            updateTableData();
     }
 }

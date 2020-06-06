@@ -51,6 +51,10 @@ public class ProviderMenuDisplay extends javax.swing.JFrame {
         jTextField_SearchProvider = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_Provider = new javax.swing.JTable();
+        jButton_Refresh = new javax.swing.JButton();
+        jTextField_SearchPart = new javax.swing.JTextField();
+        jButton_Search = new javax.swing.JButton();
+        jLabel_Part = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,9 +72,9 @@ public class ProviderMenuDisplay extends javax.swing.JFrame {
         jPanel_HeaderLayout.setHorizontalGroup(
             jPanel_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_HeaderLayout.createSequentialGroup()
-                .addContainerGap(268, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_HeaderLayout.setVerticalGroup(
             jPanel_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,6 +127,28 @@ public class ProviderMenuDisplay extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable_Provider);
 
+        jButton_Refresh.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Refresh.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Refresh.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Refresh.setText("REFRESCAR");
+
+        jTextField_SearchPart.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jTextField_SearchPart.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField_SearchPartKeyReleased(evt);
+            }
+        });
+
+        jButton_Search.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Search.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Search.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Search.setText("BUSCAR");
+
+        jLabel_Part.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_Part.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Part.setText("PARTE");
+        jLabel_Part.setToolTipText("");
+
         javax.swing.GroupLayout jPanel_BGLayout = new javax.swing.GroupLayout(jPanel_BG);
         jPanel_BG.setLayout(jPanel_BGLayout);
         jPanel_BGLayout.setHorizontalGroup(
@@ -136,7 +162,15 @@ public class ProviderMenuDisplay extends javax.swing.JFrame {
                         .addComponent(jButton_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField_SearchProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(154, 154, 154)
+                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField_SearchPart, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_Part, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton_Search)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(jButton_Refresh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_NewPartProvider)))
                 .addContainerGap())
         );
@@ -146,9 +180,16 @@ public class ProviderMenuDisplay extends javax.swing.JFrame {
                 .addComponent(jPanel_Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_NewPartProvider, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton_NewPartProvider, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                        .addComponent(jButton_Refresh, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                        .addComponent(jButton_Search, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
                     .addComponent(jButton_Back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField_SearchProvider))
+                    .addComponent(jTextField_SearchProvider)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_BGLayout.createSequentialGroup()
+                        .addComponent(jLabel_Part, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_SearchPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                 .addContainerGap())
@@ -172,14 +213,22 @@ public class ProviderMenuDisplay extends javax.swing.JFrame {
         filterSearch();
     }//GEN-LAST:event_jTextField_SearchProviderKeyReleased
 
+    private void jTextField_SearchPartKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_SearchPartKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_SearchPartKeyReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Back;
     public javax.swing.JButton jButton_NewPartProvider;
+    public javax.swing.JButton jButton_Refresh;
+    public javax.swing.JButton jButton_Search;
+    private javax.swing.JLabel jLabel_Part;
     private javax.swing.JLabel jLabel_Title;
     private javax.swing.JPanel jPanel_BG;
     private javax.swing.JPanel jPanel_Header;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable_Provider;
+    public javax.swing.JTextField jTextField_SearchPart;
     public javax.swing.JTextField jTextField_SearchProvider;
     // End of variables declaration//GEN-END:variables
 }
