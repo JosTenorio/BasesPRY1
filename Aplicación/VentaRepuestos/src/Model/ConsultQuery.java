@@ -462,7 +462,7 @@ public class ConsultQuery {
            //puede que se ingrese un nombre que no existe, si el rs no encuentra nada hay que abortar
            ResultSet rs = ConnectionManager.select("ID", "PARTE", "NOMBRE = '" + partName + "'");
            rs.next();
-           partId = rs.getString("ID");
+           partId = String.valueOf(rs.getInt("ID"));
        } catch (SQLException ex) {
            Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -502,6 +502,50 @@ public class ConsultQuery {
        }
        return partProvList;
    }
+   
+   public static ArrayList<String[]> listPartAutosTable(String model, String year){
+       ArrayList<String[]> partAutoList = new ArrayList<>();
+       String autoId = null;
+       try {
+           //puede que se ingrese un modelo o anno que no existe, si el rs no encuentra nada hay que abortar
+           ResultSet rs = ConnectionManager.select("ID", "AUTOMOVIL", "MODELO = '" + model + "' AND ANO = '" + year + "'");
+           rs.next();
+           autoId = String.valueOf(rs.getInt("ID"));
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       //de aqui en adelante no se ocupa validacion
+       try {
+           ArrayList<String> columnsPartAuto = new ArrayList<>(){
+               {
+                   add("ID_PARTE");
+                   add("ID_AUTOMOVIL");
+               }
+           };
+           ResultSet rsPart = ConnectionManager.select(columnsPartAuto, "CORRESPONDENCIA", "ID_AUTOMOVIL = " + autoId);
+           while(rsPart.next()){
+               String[] partProv = new String[5];
+               for (int i = 1; i <= columnsPartAuto.size(); i++)
+                   partProv[i-1] = String.valueOf(rsPart.getObject(i));
+               partAutoList.add(partProv);
+           }
+           for (String[] partAuto : partAutoList){
+               ResultSet rs = ConnectionManager.select("NOMBRE", "PARTE", "ID = " + partAuto[0]);
+               rs.next();
+               partAuto[2] = rs.getString("NOMBRE");
+               rs.close();
+               ArrayList<String> columnsAuto = new ArrayList<>(){{add("MODELO");add("ANO");}};
+               rs = ConnectionManager.select(columnsAuto, "AUTOMOVIL", "ID = " + partAuto[1]);
+               rs.next();
+               partAuto[3] = rs.getString("MODELO");
+               partAuto[4] = rs.getString("ANO");
+               rs.close();
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ConsultQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return partAutoList;
+   }   
 }
 
 

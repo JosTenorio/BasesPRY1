@@ -31,6 +31,8 @@ public class AutoMenuController implements ActionListener{
     private void init(){
         display.jButton_NewPartAuto.addActionListener(this);
         display.jButton_Back.addActionListener(this);
+        display.jButton_Search.addActionListener(this);
+        display.jButton_Refresh.addActionListener(this);
         initPopUpMenu();
         initTable();
         display.setResizable(false);
@@ -76,5 +78,14 @@ public class AutoMenuController implements ActionListener{
         if (e.getSource().equals(display.jButton_NewPartAuto)){
             AutoInformationController.getInstance().makeVisible(true);
         }
+        if (e.getSource().equals(display.jButton_Search)){
+            display.tableModel.setRowCount(0);
+            partAutoList = ConsultQuery.listPartAutosTable(display.jTextField_SearchModel.getText(), display.jTextField_SearchYear.getText());
+            for (String[] partAuto : partAutoList)
+                display.tableModel.addRow(Arrays.copyOfRange(partAuto, 2, 5));
+            display.jTable_Auto.setModel(display.tableModel);
+        }
+        if (e.getSource().equals(display.jButton_Refresh))
+            updateTableData();
     }
 }

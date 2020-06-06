@@ -51,6 +51,12 @@ public class AutoMenuDisplay extends javax.swing.JFrame {
         jTextField_SearchAuto = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_Auto = new javax.swing.JTable();
+        jButton_Refresh = new javax.swing.JButton();
+        jButton_Search = new javax.swing.JButton();
+        jTextField_SearchYear = new javax.swing.JTextField();
+        jLabel_Year = new javax.swing.JLabel();
+        jTextField_SearchModel = new javax.swing.JTextField();
+        jLabel_Model = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,6 +129,40 @@ public class AutoMenuDisplay extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable_Auto);
 
+        jButton_Refresh.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Refresh.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Refresh.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Refresh.setText("REFRESCAR");
+
+        jButton_Search.setBackground(new java.awt.Color(153, 0, 0));
+        jButton_Search.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton_Search.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Search.setText("BUSCAR");
+
+        jTextField_SearchYear.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jTextField_SearchYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField_SearchYearKeyReleased(evt);
+            }
+        });
+
+        jLabel_Year.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_Year.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Year.setText("AÑO");
+        jLabel_Year.setToolTipText("");
+
+        jTextField_SearchModel.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jTextField_SearchModel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField_SearchModelKeyReleased(evt);
+            }
+        });
+
+        jLabel_Model.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel_Model.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Model.setText("MODELO");
+        jLabel_Model.setToolTipText("");
+
         javax.swing.GroupLayout jPanel_BGLayout = new javax.swing.GroupLayout(jPanel_BG);
         jPanel_BG.setLayout(jPanel_BGLayout);
         jPanel_BGLayout.setHorizontalGroup(
@@ -136,7 +176,23 @@ public class AutoMenuDisplay extends javax.swing.JFrame {
                         .addComponent(jButton_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField_SearchAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_Model, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                            .addGroup(jPanel_BGLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jTextField_SearchModel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_BGLayout.createSequentialGroup()
+                                .addComponent(jTextField_SearchYear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel_Year, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton_Search)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(jButton_Refresh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_NewPartAuto)))
                 .addContainerGap())
         );
@@ -145,10 +201,23 @@ public class AutoMenuDisplay extends javax.swing.JFrame {
             .addGroup(jPanel_BGLayout.createSequentialGroup()
                 .addComponent(jPanel_Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_NewPartAuto, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(jButton_Back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField_SearchAuto))
+                .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton_NewPartAuto, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                            .addComponent(jButton_Back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField_SearchAuto))
+                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton_Search, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField_SearchYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField_SearchModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton_Refresh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel_BGLayout.createSequentialGroup()
+                        .addGroup(jPanel_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_Model, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_Year, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                 .addContainerGap())
@@ -172,14 +241,28 @@ public class AutoMenuDisplay extends javax.swing.JFrame {
         filterSearch();
     }//GEN-LAST:event_jTextField_SearchAutoKeyReleased
 
+    private void jTextField_SearchYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_SearchYearKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_SearchYearKeyReleased
+
+    private void jTextField_SearchModelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_SearchModelKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_SearchModelKeyReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Back;
     public javax.swing.JButton jButton_NewPartAuto;
+    public javax.swing.JButton jButton_Refresh;
+    public javax.swing.JButton jButton_Search;
+    private javax.swing.JLabel jLabel_Model;
     private javax.swing.JLabel jLabel_Title;
+    private javax.swing.JLabel jLabel_Year;
     private javax.swing.JPanel jPanel_BG;
     private javax.swing.JPanel jPanel_Header;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable_Auto;
     public javax.swing.JTextField jTextField_SearchAuto;
+    public javax.swing.JTextField jTextField_SearchModel;
+    public javax.swing.JTextField jTextField_SearchYear;
     // End of variables declaration//GEN-END:variables
 }
