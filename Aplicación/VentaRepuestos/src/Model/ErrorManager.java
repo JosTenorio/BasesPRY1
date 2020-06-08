@@ -5,6 +5,38 @@ import java.sql.SQLException;
 
 public class ErrorManager {
     
+    public static void listPartAutosTableError (SQLException exception) {
+        String message = exception.getMessage();
+        if (message.contains ("No rows affected")) {
+            infoBox ("No se encuentran autos registrados con el modelo y año especificado","Operación no realizada");
+        }
+        else if (message.contains ("Empty year")) {
+            infoBox ("Debe especificar un año para el automóvil","Operación no realizada");
+        }
+        else if (message.contains ("Empty model")) {
+            infoBox ("Debe especificar un modelo para el automóvil","Operación no realizada");
+        }
+        else {
+            infoBox (message,"Operación no realizada");
+        }
+    }
+    
+    
+    public static void listProvidersTableError (SQLException exception) {
+        String message = exception.getMessage();
+        if (message.contains ("No rows affected")) {
+            infoBox ("El nombre de parte dado no se encuentra en la base de datos o "
+                    + "no posee proveedores registrados","Operación no realizada");
+        }
+        else if (message.contains ("Empty part name")) {
+            infoBox ("Debe especificar un nombre para la parte","Operación no realizada");
+        }
+        else {
+            infoBox (message,"Operación no realizada");
+        }
+    }
+    
+    
     public static void orderUpdateError (SQLException exception) {
         String message = exception.getMessage();
         infoBox (message,"Operación no realizada");
