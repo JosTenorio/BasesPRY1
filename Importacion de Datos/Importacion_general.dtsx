@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Importacion_General"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{EEE973D3-DB1E-43B2-8EA0-91927ED62B9A}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{9D7AB795-DFDA-43E7-B2F1-863BC35D08F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="DestinationConnectionAdoNET">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{DBD846B1-4EB9-48ED-957B-2570F5A8A9E0}DestinationConnectionAdoNET;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="DestinationConnectionAdoNET 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{A568D827-884E-450D-9F25-1D52EAC463E5}DestinationConnectionAdoNET 1;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -43,7 +43,7 @@
       DTS:ObjectName="DestinationConnectionAdoNET 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{67240F1B-10E8-49F7-A9F4-04AA451829AB}DestinationConnectionAdoNET 2;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -53,7 +53,7 @@
       DTS:ObjectName="DestinationConnectionAdoNET 3">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{0DC14FB0-1F80-4172-BD95-9A690226A74A}DestinationConnectionAdoNET 3;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -63,7 +63,7 @@
       DTS:ObjectName="DestinationConnectionAdoNET 4">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{1A27139A-3F68-45C5-AB9B-F59986305D9D}DestinationConnectionAdoNET 4;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -73,7 +73,7 @@
       DTS:ObjectName="DestinationConnectionAdoNET 5">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{1CFC3765-3058-46DC-97A4-E846955F2D34}DestinationConnectionAdoNET 5;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -83,7 +83,7 @@
       DTS:ObjectName="DestinationConnectionAdoNET 6">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{65FDE805-6766-41FE-BD19-4E33CED9AFDF}DestinationConnectionAdoNET 6;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -93,7 +93,7 @@
       DTS:ObjectName="SourceConnectionExcel">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -103,7 +103,7 @@
       DTS:ObjectName="SourceConnectionExcel 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -113,7 +113,7 @@
       DTS:ObjectName="SourceConnectionExcel 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -123,7 +123,7 @@
       DTS:ObjectName="SourceConnectionExcel 3">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -133,7 +133,7 @@
       DTS:ObjectName="SourceConnectionExcel 4">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -143,7 +143,7 @@
       DTS:ObjectName="SourceConnectionExcel 5">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -153,7 +153,7 @@
       DTS:ObjectName="SourceConnectionExcel 6">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -2472,7 +2472,7 @@
     design-time-name="Package\Importacion de estados">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="148.8,41.6"
           Id="Package\Importacion de estados\Source - Query"
@@ -2500,7 +2500,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

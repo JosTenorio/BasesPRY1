@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">JOS-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAU+4Jd1Ro+ESVkQULFjL4RwAAAAACAAAAAAAQZgAAAAEAACAAAAC93wPrqkMxprlDQs9yTjZs8NeV7KzD2IOA0bgI8l2k+gAAAAAOgAAAAAIAACAAAABQO/TtUf+szHvzi/8n554Il2aA5CyGwR333bOvpZV6v5AAAABIpWGrOycZWpOYA/MuiK34Dfw1nN5MYZUZEcNkAHUAAwc1gDy39no5dwxNj8DcxXL7Rt1W9axK0dlltAX2rujg4W2YOBXlIZVv9U95pFwagH7d97bzlsUfp0OYbxnKlIbdlh4JA0lqOw3GYVh/o8aI6kslw5bEV1C9CBo8WHoqFz1CiZLdhX9WNXfd7HiQ1pBAAAAAwbPQ723eZhSWZAnPI/Jg6XvBO1wK5Bv9TLpXUGcalCSAjd+cu5poNz5y7giqURY7dbfgn2aPe1jMJTIoncUCJw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAz9wFixwRUqCx4Q6eSoXKAAAAAACAAAAAAAQZgAAAAEAACAAAAAe3OIyyZHxnfyjniE54jp8JjoySPZBVWQ2YLMb1XAmVAAAAAAOgAAAAAIAACAAAAA+I6g8uNowP4QYktFqTDqgx14EzlVcjK4ZKPmPuy9tjJAAAABJLsSagwB6rkKKt3u08eho27XJWkCpxpCTvQxdCZ1FaNW2P6EPljV6RThrvgq4VfblcxGem/EUPZK8zcPTmJ6ENRDXXRUhcz7dHni7jOiH9ruCLp7Vbt1kA1sMm6W2gTvju9NOiZr0y9txNlYAGb6P2WIS3Pn/is/5RRWkTWYvYwXiWAHF7dLI1SaqoAkFrRtAAAAA+gJUTRKxkQXPcq/si2n5ufXMQ2K04aKeEhZpHFHmndxTHc8P+9SuFheA5v6Gtfswj1tP1jHmrrz+qygKa0RZVg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">Importacion_General</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">22</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">29</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{EEE973D3-DB1E-43B2-8EA0-91927ED62B9A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9D7AB795-DFDA-43E7-B2F1-863BC35D08F0}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -63,7 +63,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{DBD846B1-4EB9-48ED-957B-2570F5A8A9E0}DestinationConnectionAdoNET;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -137,7 +137,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">JOS-PC\VENTASPARTES</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">JOTA-PC</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -166,7 +166,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{A568D827-884E-450D-9F25-1D52EAC463E5}DestinationConnectionAdoNET 1;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -240,7 +240,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">JOS-PC\VENTASPARTES</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">JOTA-PC</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -269,7 +269,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{67240F1B-10E8-49F7-A9F4-04AA451829AB}DestinationConnectionAdoNET 2;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -343,7 +343,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">JOS-PC\VENTASPARTES</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">JOTA-PC</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -372,7 +372,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{0DC14FB0-1F80-4172-BD95-9A690226A74A}DestinationConnectionAdoNET 3;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -446,7 +446,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">JOS-PC\VENTASPARTES</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">JOTA-PC</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -475,7 +475,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{1A27139A-3F68-45C5-AB9B-F59986305D9D}DestinationConnectionAdoNET 4;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -549,7 +549,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">JOS-PC\VENTASPARTES</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">JOTA-PC</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -578,7 +578,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{1CFC3765-3058-46DC-97A4-E846955F2D34}DestinationConnectionAdoNET 5;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -652,7 +652,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">JOS-PC\VENTASPARTES</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">JOTA-PC</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -681,7 +681,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=JOS-PC\VENTASPARTES;Initial Catalog=BasesPRY1;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=JOTA-PC;Initial Catalog=BasesPRY1;Integrated Security=True;Application Name=SSIS-Importacion_General-{65FDE805-6766-41FE-BD19-4E33CED9AFDF}DestinationConnectionAdoNET 6;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -755,7 +755,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">JOS-PC\VENTASPARTES</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">JOTA-PC</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -784,7 +784,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -799,7 +799,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -872,7 +872,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -901,7 +901,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -916,7 +916,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -989,7 +989,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1018,7 +1018,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1033,7 +1033,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1106,7 +1106,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1135,7 +1135,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1150,7 +1150,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1223,7 +1223,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1252,7 +1252,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1267,7 +1267,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1340,7 +1340,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1369,7 +1369,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1384,7 +1384,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1457,7 +1457,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1486,7 +1486,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1501,7 +1501,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1574,7 +1574,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Jos\Desktop\BasesPRY1\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SQL 2019\Projects\BasesPRY1\TP1 2020i  - Datos para carga.xls</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
