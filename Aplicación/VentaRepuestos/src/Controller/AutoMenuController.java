@@ -61,6 +61,8 @@ public class AutoMenuController implements ActionListener{
     }
     
     public void updateTableData(){
+        display.jTextField_SearchModel.setText("");
+        display.jTextField_SearchYear.setText("");
         display.tableModel.setRowCount(0);
         partAutoList = ConsultQuery.listPartAutosTable();
         for (String[] partAuto : partAutoList)

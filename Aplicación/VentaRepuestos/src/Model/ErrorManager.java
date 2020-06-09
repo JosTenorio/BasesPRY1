@@ -98,8 +98,7 @@ public class ErrorManager {
     public static void provitionUpdateError (SQLException exception) {
         String message = exception.getMessage();       
         if (message.contains ("Incorrect syntax")||message.contains ("Invalid column name")) 
-            infoBox ("Se deben digitar únicamente números en los campos clave de parte, "
-                    + "precio del proveedor y porcentaje de ganancia. Favor revisar dichos campos","Operación no realizada");
+            infoBox ("Se deben digitar únicamente números en los campos de precio del proveedor y porcentaje de ganancia. Favor revisar dichos campos","Operación no realizada");
         else if (message.contains ("Arithmetic overflow"))
             infoBox ("El monto ingresado en el precio de proveedor y/o porcentaje de ganancia es demasiado alto o bajo","Operación no realizada");
         else if (message.contains ("CH_PRECPROV"))
@@ -151,8 +150,7 @@ public class ErrorManager {
         else if (message.contains ("NULL into column 'ID_PROVEEDOR'")) 
             infoBox ("El nombre de proveedor dado no se encuentra almacenado en el sistema","Operación no realizada");
         else if (message.contains ("Incorrect syntax")||message.contains ("Invalid column name")) 
-            infoBox ("Se deben digitar únicamente números en los campos clave de parte, "
-                    + "precio del proveedor y porcentaje de ganancia. Favor revisar dichos campos","Operación no realizada");
+            infoBox ("Se deben digitar únicamente números en los campos de precio del proveedor y porcentaje de ganancia. Favor revisar dichos campos","Operación no realizada");
         else if (message.contains ("Arithmetic overflow"))
             infoBox ("El monto ingresado en el precio de proveedor y/o porcentaje de ganancia es demasiado alto o bajo","Operación no realizada");
         else if (message.contains ("CH_PRECPROV"))

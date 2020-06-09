@@ -23,7 +23,7 @@ public class PartQuery {
                 }
             };
             if (name.equals(""))
-                throw new SQLException ("Empy part name");
+                throw new SQLException ("Empty part name");
             ConnectionManager.insert("PARTE", columns, values);
         } catch (SQLException ex) {
             ErrorManager.partInsertError(ex);

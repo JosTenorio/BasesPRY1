@@ -72,6 +72,7 @@ public class ProviderMenuController implements ActionListener{
     }
     
     public void updateTableData(){
+        display.jTextField_SearchPart.setText("");
         display.tableModel.setRowCount(0);
         partProvList = ConsultQuery.listPartProvidersTable();
         for (String[] partProv : partProvList)
